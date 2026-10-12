@@ -1,0 +1,12 @@
+{
+  "project": "shu_123/cuhkx-small-multimodal",
+  "visibility": "PRIVATE",
+  "local_unique_runs": 596,
+  "online_unique_runs": 596,
+  "state_counts": {
+    "CRASHED": 117,
+    "FINISHED": 475,
+    "ABORTED": 4
+  },
+  "local_swanlog_directories": 70
+}

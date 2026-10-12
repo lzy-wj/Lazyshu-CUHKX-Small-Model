@@ -1,0 +1,194 @@
+schema_version: 2
+
+team:
+  name: "Lazyshu"
+  track: "small"
+  contact_email: "lazy@bupt.edu.cn"
+
+kaggle_submission_record:
+  path: "submission/submission_info.yaml"
+  selected_submission_count: 2
+
+solution:
+  type: "ensemble"
+  entrypoint: "inference.sh"
+  primary_config: "configs/final.yaml"
+  source_root: "src"
+  training_source_root: "training/source_snapshot"
+  primary_submission_id: "56174717"
+  secondary_submission_id: "56243275"
+
+environment:
+  specification: "environment/requirements.txt"
+  dockerfile: null
+  docker_image: null
+  operating_system: "Ubuntu 22.04 LTS, Linux x86_64"
+  python_version: "3.12.12"
+  cuda_or_accelerator_version: "PyTorch CUDA 12.8; NVIDIA driver 580.126.20 tested"
+  pytorch_version: "2.9.1+cu128"
+  torchvision_version: "0.24.1+cu128"
+  system_packages: []
+
+hardware:
+  gpu_count: 1
+  minimum_gpu_memory_gb_per_gpu: 24
+  minimum_gpu_architecture: "NVIDIA Ampere or newer with BF16 support"
+  minimum_host_memory_gb: 32
+  minimum_free_disk_gb: 10
+  expected_setup_time: "10-20 minutes with package-index access"
+  expected_inference_time: "407.77 seconds for the published 405 clips on one NVIDIA A800-SXM4-80GB"
+  measured_peak_cuda_memory_gb: 13.491401216
+
+network:
+  required_during_setup: true
+  required_during_inference: false
+  allowed_hosts:
+    - "pypi.org"
+    - "files.pythonhosted.org"
+    - "download.pytorch.org"
+  explanation: "Network is needed only to install pinned Python wheels; every runtime model asset is bundled."
+
+api:
+  required: false
+  provider: null
+  model_and_version: null
+  configuration_example: null
+  credential_environment_variables: []
+  estimated_usage: null
+
+model_budget:
+  rule_bytes: 100000000
+  bundled_model_asset_bytes: 84094248
+  slack_bytes: 15905752
+  inventory: "configs/artifact_hashes.json"
+
+artifacts:
+  - name: "V24 full-data INT8 parameter soup"
+    purpose: "Primary 40-class multimodal CNN/RNN/Transformer checkpoint"
+    path: "artifacts/v24_full_warm60_soup_int8.pt"
+    source_url: null
+    revision_or_version: "V24 frozen full-data five-source soup"
+    bytes: 65395355
+    sha256: "90b1b77257bbe4aa8a673554a78c24c6af25211819e41f2812b02fa8d9a0f775"
+    required: true
+  - name: "YOLO11n compact person detector"
+    purpose: "Label-free deterministic person crop-window preprocessing"
+    path: "artifacts/yolo11n_compact.pt"
+    source_url: "https://github.com/ultralytics/ultralytics"
+    revision_or_version: "YOLO11n COCO checkpoint; ultralytics 8.4.142"
+    licence: "AGPL-3.0"
+    bytes: 5545721
+    sha256: "11120a721121fb9d178b87cb769027f848b3dfae138db8ff08db3b6920389999"
+    required: true
+  - name: "V24 low-resolution pseudo head delta"
+    purpose: "Frozen 128-pixel model-generated pseudo-label head adaptation"
+    path: "artifacts/v24_lowres_pseudo_head_delta.pt"
+    bytes: 167571
+    sha256: "ddda4dd2db3939be5dd37428ca2f0b5c08b687a9b7b94a4a05a518b7abe13631"
+    required: true
+  - name: "V24 high-resolution pseudo head delta"
+    purpose: "Frozen 160-pixel model-generated pseudo-label head adaptation"
+    path: "artifacts/v24_highres_pseudo_head_delta.pt"
+    bytes: 167499
+    sha256: "675cd166dac5af8e8aff647ca8117331910b9db15439358d378069cd488cfe9b"
+    required: true
+  - name: "V103 protected dual adapter"
+    purpose: "Compact full-data protected visual adapter"
+    path: "artifacts/v103_full_protected_dual_adapter.pt"
+    bytes: 1248787
+    sha256: "87f4bc47c45bd258610c2682f89d97c9cba56f20dac68717a27f09c65ce52176"
+    required: true
+  - name: "V104 old cross-modal target state"
+    purpose: "Frozen cross-modal model-generated pseudo-label adapter"
+    path: "artifacts/v104_target_old_cross_state.pt"
+    bytes: 1415199
+    sha256: "6e47674b8f3fbe25b9c818c4fcf5f3f84791a57e3245a2140ce08e54da3ad590"
+    required: true
+  - name: "V104 refreshed cross-modal target state"
+    purpose: "Frozen refreshed cross-modal model-generated pseudo-label adapter"
+    path: "artifacts/v104_target_refreshed_cross_state.pt"
+    bytes: 1415199
+    sha256: "aef6bba04a37c1c3d112c493f2a6026c89c7822743fc1f9faca9b3d4a27c2e03"
+    required: true
+  - name: "V114 source-user 16 state"
+    purpose: "Paired-person adapter using labeled source user 16 and target pseudo-label retention"
+    path: "artifacts/v114_source16_state.pt"
+    bytes: 1415263
+    sha256: "5b60409d7e668ab3fbc5a4159ee6cd5f94aae5ac8f22608120250793a90a1f44"
+    required: true
+  - name: "V114 source-user 20 state"
+    purpose: "Paired-person adapter using labeled source user 20 and target pseudo-label retention"
+    path: "artifacts/v114_source20_state.pt"
+    bytes: 1415263
+    sha256: "ea3f802b59e0c8e142d62a4d0ff19bb90bbf1e0a23f7433633a3c94932a6cef0"
+    required: true
+  - name: "V114 source-user 21 state"
+    purpose: "Paired-person adapter using labeled source user 21 and target pseudo-label retention"
+    path: "artifacts/v114_source21_state.pt"
+    bytes: 1415263
+    sha256: "17522ad5b51673b0271c29b5861f02360105be075a836b82439d1677604e5b33"
+    required: true
+  - name: "V52 domain residual Conv1D"
+    purpose: "Compact distilled domain logit residual"
+    path: "artifacts/v52_domain_logit_residual_conv1d.pt"
+    bytes: 23105
+    sha256: "ec3bd24e1266c6c57b2c9d7542eb1d27597afdab7d54e10df8a6296cdb4f4503"
+    required: true
+  - name: "V57 round residual Transformer"
+    purpose: "Compact distilled sequence residual"
+    path: "artifacts/v57_round_residual_transformer.pt"
+    bytes: 192573
+    sha256: "bb75157341ec056fe2b3abc934280795cc63072dc69111b47e92bfc1e4aa9667"
+    required: true
+  - name: "V71 gated FiLM Transformer"
+    purpose: "Gated multimodal residual teacher used on unmatched source-supervision domains"
+    path: "artifacts/v71_gated_film_transformer.pt"
+    bytes: 4083285
+    sha256: "9685335783b811f9c22692187d7f0bf4fa4a92d1f01231570a1ee8a28210a511"
+    required: true
+  - name: "Frozen decoder state"
+    purpose: "Training-label transitions/templates, source support, date routes, and evidence thresholds"
+    path: "artifacts/decoder_state.json"
+    bytes: 194165
+    sha256: "8bca1b3ba6c5d3be08338fe87d5dff48bf1c82a1261a237908a6f2e439a3a4c4"
+    required: true
+
+external_training_data:
+  - name: "IG-65M to Kinetics-400 R(2+1)D-34 pretrained checkpoint"
+    purpose: "Visual CNN initialization before supervised CUHK-X training"
+    source_url: "https://github.com/moabitcoin/ig65m-pytorch/releases/tag/v1.0.0"
+    exact_asset: "r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth"
+    sha256: "ade133f18548b59da3a36d6a70d44a4a7cc4b90460654c338cb8a023e9a3e0e1"
+    licence: "MIT for conversion repository; underlying IG-65M and Kinetics data retain original terms"
+    access_instructions: "Public release asset; training setup only; incorporated into bundled final checkpoint"
+  - name: "COCO-pretrained Ultralytics YOLO11n"
+    purpose: "Person crop-window detector only; no activity labels"
+    source_url: "https://docs.ultralytics.com/models/yolo11/"
+    licence: "AGPL-3.0"
+    access_instructions: "Exact compact weight is already bundled; no inference download"
+  - name: "Model-generated pseudo-labels on official unlabeled Testing data"
+    purpose: "Two-epoch head/adapter adaptation with confidence and retention losses"
+    source_url: null
+    licence: "CUHK-X competition data terms"
+    access_instructions: "Generated by the frozen participant model; no ground truth or manual annotation used"
+
+reproducibility:
+  random_seeds: [42, 43]
+  precision_mode: "INT8 stored base; BF16 CUDA autocast; FP32/FP64 postprocessing"
+  expected_nondeterminism: "No stochastic inference; tiny hardware-specific BF16 logit differences are possible."
+  comparison_notes: "On the tested A800 stack, the primary output is byte-identical to final_submission_1.csv. Compare exact path order and integer predictions."
+  local_report: "verification/original_test_report.json"
+
+inference_input:
+  type: "official_label_free_testing_directory"
+  path_supplied_by_organizer: true
+  published_layout_preserved: true
+  participant_preprocessing_included: true
+  training_labels_required: false
+  hardcoded_sample_count: false
+
+declarations:
+  honor_declaration_form: "declarations/CUHK-X_Honor_Declaration.docx"
+  signed_declaration: "declarations/honor_declaration.pdf"
+  signed_docx_copy: "declarations/CUHK-X_Honor_Declaration.docx"
+  status: "Electronically signed by sole team member 刘钊洋 on 2026-09-17 UTC; PDF and DOCX included"

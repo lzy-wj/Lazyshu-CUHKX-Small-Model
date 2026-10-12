@@ -1,0 +1,25 @@
+{
+  "fold": 1,
+  "candidate": "outputs/study_r2plus1d/r2_staged_soup_f1_w075_crop075.npz",
+  "candidate_sha256": "143e1dc26126021e24a2ffef03205d5d5f5210070c025560d160ce599d99de64",
+  "rows": 705,
+  "gated_rows": 24,
+  "standalone_accuracy": 0.7191489361702128,
+  "available_accuracy": 0.7897196261682243,
+  "coverage": 0.9106382978723404,
+  "ensemble_raw_accuracy": 0.7914893617021277,
+  "decoded_accuracy": 0.8425531914893617,
+  "decoded_correct": 594,
+  "baseline": {
+    "standalone_accuracy": 0.7191489361702128,
+    "available_accuracy": 0.7897196261682243,
+    "ensemble_raw_accuracy": 0.7914893617021277,
+    "decoded_accuracy": 0.8425531914893617
+  },
+  "delta_percentage_points": {
+    "standalone_accuracy": 0.0,
+    "available_accuracy": 0.0,
+    "ensemble_raw_accuracy": 0.0,
+    "decoded_accuracy": 0.0
+  }
+}

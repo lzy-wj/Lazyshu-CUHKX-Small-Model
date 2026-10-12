@@ -1,0 +1,12 @@
+{
+  "name": "full_input_staged42_v1",
+  "jobs": [
+    {"name": "full_input_v1_skeleton", "sources": ["scratch_v1_skeleton_f0", "input_v1_skeleton_f1"]},
+    {"name": "full_input_v1_imu_world", "sources": ["input_v1_imu_world_f0", "input_v1_imu_world_f1"]},
+    {"name": "full_input_v1_thermal_motion", "sources": ["input_v1_thermal_motion_f0", "input_v1_thermal_motion_f1"]},
+    {
+      "name": "full_input_v1_staged42", "sources": ["fusion_input_v1_staged_f0", "fusion_input_v1_staged_f1"],
+      "encoder_sources": ["outputs/checkpoints/full_input_v1_skeleton/best.pt", "outputs/checkpoints/full_input_v1_imu_world/best.pt", "outputs/checkpoints/full_input_v1_thermal_motion/best.pt"]
+    }
+  ]
+}

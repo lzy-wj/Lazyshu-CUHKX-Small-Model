@@ -1,0 +1,27 @@
+{
+  "name": "input_fusion_seed43",
+  "fold": 0,
+  "seed": 43,
+  "epochs": 60,
+  "batch_size": 24,
+  "frames": 16,
+  "image_size": 160,
+  "lr": 0.001,
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 60,
+  "gpus": [2, 3, 7],
+  "queue_hours": 2,
+  "jobs": [
+    {
+      "name": "fusion_input_v1_staged_s43_f0", "modalities": ["skeleton", "imu", "thermal"], "fusion": "transformer", "imu_representation": "world", "thermal_view": "motion_crop",
+      "encoder_sources": ["outputs/checkpoints/scratch_v1_skeleton_f0/best.pt", "outputs/checkpoints/input_v1_imu_world_f0/best.pt", "outputs/checkpoints/input_v1_thermal_motion_f0/best.pt"]
+    },
+    {
+      "name": "fusion_input_v1_staged_s43_f1", "modalities": ["skeleton", "imu", "thermal"], "fusion": "transformer", "imu_representation": "world", "thermal_view": "motion_crop", "fold": 1,
+      "encoder_sources": ["outputs/checkpoints/input_v1_skeleton_f1/best.pt", "outputs/checkpoints/input_v1_imu_world_f1/best.pt", "outputs/checkpoints/input_v1_thermal_motion_f1/best.pt"]
+    }
+  ],
+  "protocol": "Repeat staged fusion with seed43 while retaining the same independently trained seed42 single-modality sources. This tests fusion optimization stability, not complete independent retraining of every source encoder.",
+  "selection": "Compare each seed on both user folds. Also evaluate one prespecified equal-probability average of seeds42/43; do not search ensemble weights. No official test labels."
+}

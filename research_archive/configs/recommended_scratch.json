@@ -1,0 +1,38 @@
+{
+  "name": "scratch_blend_v2",
+  "status": "full-data training, cached inference, independent raw inference and final archive verified",
+  "modalities": ["skeleton", "imu", "thermal"],
+  "architecture": "Two scratch CNN/CNN-LSTM self-attention fusion models plus two scratch query cross-attention fusion models",
+  "external_pretrained_weights": false,
+  "checkpoints": [
+    "outputs/final_scratch_blend_v2/model_0.pt",
+    "outputs/final_scratch_blend_v2/model_1.pt",
+    "outputs/final_scratch_blend_v2/model_2.pt",
+    "outputs/final_scratch_blend_v2/model_3.pt"
+  ],
+  "weights": [0.375, 0.375, 0.125, 0.125],
+  "temperatures": [1.0, 1.0, 1.0, 1.0],
+  "weight_selection": "75% self-attention and 25% cross-attention selected independently on grouped inner users before full-fold cross evaluation; seeds averaged within architecture",
+  "validation": {
+    "fold0_accuracy": 0.5567484662576687,
+    "fold1_accuracy": 0.6056737588652482,
+    "pooled_accuracy": 0.5821665438467207,
+    "pooled_macro_f1": 0.4929602623655727,
+    "old_pooled_accuracy": 0.5696389093588798,
+    "accuracy_delta": 0.012527634487840826,
+    "note": "Historically exposed user-isolated development folds; not official test accuracy"
+  },
+  "submission_csv": "outputs/final_scratch_blend_v2/submission.csv",
+  "bundle": "outputs/final_scratch_blend_v2.zip",
+  "bundle_uncompressed_bytes": 46572136,
+  "bundle_zip_bytes": 39930100,
+  "bundle_zip_sha256": "f907fa0450ba9112a07e963a86c4a910b077c20c4e9ebf08382b39f9bf2bd04e",
+  "raw_replay_max_probability_delta": 0.0,
+  "test_rows": 405,
+  "official_test_accuracy": null,
+  "submitted_to_kaggle": false,
+  "target_95_reached": false,
+  "previous_candidate": "outputs/final_scratch_input.zip",
+  "research_report": "docs/FINAL_BLEND_V2_20260907.md",
+  "audit": "outputs/study_staged_spatial/final_blend_audit.json"
+}

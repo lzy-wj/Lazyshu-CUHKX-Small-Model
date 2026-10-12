@@ -1,0 +1,32 @@
+{
+  "name": "final_legal_multimodal_v6",
+  "base_models": [
+    {
+      "name": "v3_final_x3d_int8",
+      "weight_within_base": 0.83,
+      "temperature": 0.9736012920941253
+    },
+    {
+      "name": "v2_final_statistics_int8",
+      "weight_within_base": 0.17,
+      "temperature": 1.1338148770999141
+    }
+  ],
+  "r2plus1d": {
+    "name": "r2_staged_multimodal_full_int8_hflip",
+    "weight": 0.3,
+    "temperature": 1.5,
+    "tta": "original plus horizontal flip"
+  },
+  "base_weight": 0.7,
+  "repeat_decoder": {
+    "round_gap_seconds": 30,
+    "maximum_repeat_gap_seconds": 120,
+    "minimum_probability_similarity": 0.7,
+    "unique_labels_per_round": true,
+    "cooccurrence_strength": 0
+  },
+  "selection_protocol": "All scalar settings selected on fold 0 and applied unchanged to fold 1; fold-specific checkpoints selected only on their own validation users.",
+  "test_information_policy": "No test labels, user IDs, trial IDs, label mappings from timestamps, or leaked metadata are used. Test acquisition intervals are used only to recover repeated unlabeled rounds.",
+  "model_asset_bytes": 94972122
+}

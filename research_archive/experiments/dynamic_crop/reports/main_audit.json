@@ -1,0 +1,30 @@
+{
+  "fold": 0,
+  "candidate": "experiments/dynamic_crop/predictions/ablation_dynamic_crop_fold0.npz",
+  "candidate_sha256": "8db28d025806cadaa62036730d0f931baa91413f62d926b94a800357a32803c5",
+  "rows": 652,
+  "gated_rows": 19,
+  "standalone_accuracy": 0.6702453987730062,
+  "available_accuracy": 0.6871069182389937,
+  "coverage": 0.9754601226993865,
+  "ensemble_raw_accuracy": 0.6932515337423313,
+  "decoded_accuracy": 0.7469325153374233,
+  "decoded_correct": 487,
+  "baseline": {
+    "standalone_accuracy": 0.6779141104294478,
+    "available_accuracy": 0.6949685534591195,
+    "ensemble_raw_accuracy": 0.7101226993865031,
+    "decoded_accuracy": 0.7684049079754601
+  },
+  "delta_percentage_points": {
+    "standalone_accuracy": -0.7668711656441674,
+    "available_accuracy": -0.7861635220125729,
+    "ensemble_raw_accuracy": -1.6871165644171793,
+    "decoded_accuracy": -2.1472392638036797
+  },
+  "acceptance_gate": {
+    "standalone_gain_at_least_0_5pp_without_decoded_regression": false,
+    "decoded_gain_at_least_2_without_raw_regression": false
+  },
+  "advance_to_fold1": false
+}

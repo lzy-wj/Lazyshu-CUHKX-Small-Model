@@ -1,0 +1,33 @@
+{
+  "name": "input_fusion_v1",
+  "fold": 0,
+  "seed": 42,
+  "epochs": 60,
+  "batch_size": 24,
+  "frames": 16,
+  "image_size": 160,
+  "lr": 0.001,
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 60,
+  "gpus": [2, 3, 7],
+  "queue_hours": 3,
+  "jobs": [
+    {"name": "input_v1_skeleton_f1", "modalities": ["skeleton"], "fusion": "concat", "fold": 1},
+    {"name": "fusion_input_v1_original_f0", "modalities": ["skeleton", "imu", "thermal"], "fusion": "concat"},
+    {"name": "fusion_input_v1_improved_f0", "modalities": ["skeleton", "imu", "thermal"], "fusion": "concat", "imu_representation": "world", "thermal_view": "motion_crop"},
+    {"name": "fusion_input_v1_original_f1", "modalities": ["skeleton", "imu", "thermal"], "fusion": "concat", "fold": 1},
+    {"name": "fusion_input_v1_improved_f1", "modalities": ["skeleton", "imu", "thermal"], "fusion": "concat", "imu_representation": "world", "thermal_view": "motion_crop", "fold": 1},
+    {
+      "name": "fusion_input_v1_staged_f0", "modalities": ["skeleton", "imu", "thermal"], "fusion": "transformer", "imu_representation": "world", "thermal_view": "motion_crop",
+      "encoder_sources": ["outputs/checkpoints/scratch_v1_skeleton_f0/best.pt", "outputs/checkpoints/input_v1_imu_world_f0/best.pt", "outputs/checkpoints/input_v1_thermal_motion_f0/best.pt"]
+    },
+    {
+      "name": "fusion_input_v1_staged_f1", "modalities": ["skeleton", "imu", "thermal"], "fusion": "transformer", "imu_representation": "world", "thermal_view": "motion_crop", "fold": 1,
+      "encoder_sources": ["outputs/checkpoints/input_v1_skeleton_f1/best.pt", "outputs/checkpoints/input_v1_imu_world_f1/best.pt", "outputs/checkpoints/input_v1_thermal_motion_f1/best.pt"]
+    }
+  ],
+  "hypothesis": "First compare the same three-modality CNN/LSTM concat model under original vs improved inputs on both user folds. Then test staged scratch encoder initialization with Transformer fusion as a separate, extra-compute recipe.",
+  "selection": "All original fold training clips; cross-user validation selects checkpoints. No official test labels. Staged sources must be complete, same-fold single-modality scratch models with matching input representations.",
+  "promotion": "Compare the pooled two-fold accuracy and individual fold direction. Produce final artifacts only after reviewing all preset results; no automatic Kaggle submission."
+}

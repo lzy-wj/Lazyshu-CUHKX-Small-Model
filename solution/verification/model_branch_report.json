@@ -1,0 +1,24 @@
+{
+  "model_seconds": 311.6248518805951,
+  "elapsed_seconds": 331.60795402526855,
+  "peak_cuda_memory_gb": 13.459734016,
+  "branches": {
+    "base": {"max_abs_probability_difference": 0.0, "top1_difference_count": 0},
+    "adapted_low": {"max_abs_probability_difference": 0.00042128562927246094, "top1_difference_count": 0},
+    "adapted_high": {"max_abs_probability_difference": 0.04774084687232971, "top1_difference_count": 0},
+    "v103": {"max_abs_probability_difference": 0.0, "top1_difference_count": 0},
+    "v104_old": {"max_abs_probability_difference": 0.0, "top1_difference_count": 0},
+    "v104_refreshed": {"max_abs_probability_difference": 0.0, "top1_difference_count": 0},
+    "v114_16": {"max_abs_probability_difference": 0.023084968328475952, "top1_difference_count": 0},
+    "v114_20": {"max_abs_probability_difference": 0.03627103567123413, "top1_difference_count": 0},
+    "v114_21": {"max_abs_probability_difference": 0.032967448234558105, "top1_difference_count": 1}
+  },
+  "primary": {
+    "final_label_difference_count": 0,
+    "sha256": "76210e13f1f63a3d63c356f2462aa09917a6d9c0c919a0e8025098ab4408acb0"
+  },
+  "secondary": {
+    "final_label_difference_count": 0,
+    "sha256": "aaf3ac9dc0fe71fe5a21b78d2243ac330dee3bec0aad69ebb52f11acb7989639"
+  }
+}

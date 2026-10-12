@@ -1,0 +1,46 @@
+{
+  "experiment": "ablation_async_shift",
+  "fold": 0,
+  "fold1_inspected": false,
+  "kaggle_submitted": false,
+  "decision": "reject",
+  "advance_to_fold1": false,
+  "baseline": {
+    "right_endpoint_accuracy": 0.6533742331288344,
+    "standalone_accuracy": 0.6779141104294478,
+    "available_accuracy": 0.6949685534591195,
+    "ensemble_raw_accuracy": 0.7101226993865031,
+    "decoded_accuracy": 0.7684049079754601,
+    "decoded_correct": 501
+  },
+  "candidates": [
+    {
+      "maximum_shift_tokens": 2,
+      "right_endpoint_accuracy": 0.6549079754601227,
+      "best_epoch": 9,
+      "standalone_accuracy": 0.6840490797546013,
+      "available_accuracy": 0.7012578616352201,
+      "ensemble_raw_accuracy": 0.7085889570552147,
+      "decoded_accuracy": 0.7638036809815951,
+      "decoded_correct": 498,
+      "advance_to_fold1": false,
+      "candidate": "outputs/predictions/ablation_async_shift_f0_p2_candidate.npz",
+      "candidate_sha256": "0da8c9ff515a0ceab7b4302f7f2640d711877f5f9b72ab906d70ed65ada40d78",
+      "swanlab_url": "https://swanlab.cn/@shu_123/cuhkx-small-multimodal/runs/bj3ugsmx"
+    },
+    {
+      "maximum_shift_tokens": 4,
+      "right_endpoint_accuracy": 0.6503067484662577,
+      "best_epoch": 2,
+      "standalone_accuracy": 0.6702453987730062,
+      "available_accuracy": 0.6871069182389937,
+      "ensemble_raw_accuracy": 0.696319018404908,
+      "decoded_accuracy": 0.7699386503067485,
+      "decoded_correct": 502,
+      "advance_to_fold1": false,
+      "candidate": "outputs/predictions/ablation_async_shift_f0_p4_candidate.npz",
+      "candidate_sha256": "a15220c6f2490545ea633b9a5aed25b4151779517500dd69c65d829c652f8beb",
+      "swanlab_url": "https://swanlab.cn/@shu_123/cuhkx-small-multimodal/runs/8dnjx0dq"
+    }
+  ]
+}

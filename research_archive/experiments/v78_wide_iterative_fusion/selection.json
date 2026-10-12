@@ -1,0 +1,29 @@
+{
+  "protocol": "Equal-parameter K1/K2 Fold0 comparison; correct>NLL>missing-visual.",
+  "baseline": {
+    "correct": 487,
+    "nll": 1.1791210174560547,
+    "rows": 652
+  },
+  "candidates": [
+    {
+      "iterations": 1,
+      "correct": 473,
+      "nll": 1.276009440422058,
+      "visual_missing_correct": 24,
+      "parameters": 89538928,
+      "deployment_bytes_with_yolo": 95482796
+    },
+    {
+      "iterations": 2,
+      "correct": 466,
+      "nll": 1.3829066753387451,
+      "visual_missing_correct": 23,
+      "parameters": 89538928,
+      "deployment_bytes_with_yolo": 95482796
+    }
+  ],
+  "selected_iterations": 1,
+  "capacity_gate_passed": false,
+  "loop_gate_passed": false
+}

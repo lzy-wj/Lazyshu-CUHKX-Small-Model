@@ -1,0 +1,147 @@
+{
+  "seed": 42,
+  "epochs": 60,
+  "batch_size": 24,
+  "frames": 16,
+  "image_size": 160,
+  "lr": 0.001,
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 60,
+  "gpus": [
+    2,
+    3,
+    7
+  ],
+  "queue_hours": 4,
+  "warmup_epochs": 5,
+  "swanlab_mode": "online",
+  "name": "staged_spatial_v1",
+  "jobs": [
+    {
+      "name": "staged_spatial_v1_skeleton_f0",
+      "modalities": [
+        "skeleton"
+      ],
+      "fusion": "concat",
+      "fold": 0,
+      "diagnostic_split": "configs/spatial_grouped_f0.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "full",
+      "imu_representation": "raw"
+    },
+    {
+      "name": "staged_spatial_v1_imu_f0",
+      "modalities": [
+        "imu"
+      ],
+      "fusion": "concat",
+      "fold": 0,
+      "diagnostic_split": "configs/spatial_grouped_f0.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "full",
+      "imu_representation": "world"
+    },
+    {
+      "name": "staged_spatial_v1_thermal_f0",
+      "modalities": [
+        "thermal"
+      ],
+      "fusion": "cross_transformer",
+      "fold": 0,
+      "diagnostic_split": "configs/spatial_grouped_f0.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "motion_crop",
+      "imu_representation": "raw",
+      "visual_encoder": "cnn_tokens",
+      "visual_feedforward": 384
+    },
+    {
+      "name": "staged_spatial_v1_fusion_f0",
+      "modalities": [
+        "skeleton",
+        "imu",
+        "thermal"
+      ],
+      "fusion": "cross_transformer",
+      "visual_encoder": "cnn_tokens",
+      "visual_feedforward": 384,
+      "fold": 0,
+      "diagnostic_split": "configs/spatial_grouped_f0.json",
+      "encoder_sources": [
+        "outputs/checkpoints/staged_spatial_v1_skeleton_f0/best.pt",
+        "outputs/checkpoints/staged_spatial_v1_imu_f0/best.pt",
+        "outputs/checkpoints/staged_spatial_v1_thermal_f0/best.pt"
+      ],
+      "thermal_view": "motion_crop",
+      "imu_representation": "world"
+    },
+    {
+      "name": "staged_spatial_v1_skeleton_f1",
+      "modalities": [
+        "skeleton"
+      ],
+      "fusion": "concat",
+      "fold": 1,
+      "diagnostic_split": "configs/spatial_grouped_f1.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "full",
+      "imu_representation": "raw"
+    },
+    {
+      "name": "staged_spatial_v1_imu_f1",
+      "modalities": [
+        "imu"
+      ],
+      "fusion": "concat",
+      "fold": 1,
+      "diagnostic_split": "configs/spatial_grouped_f1.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "full",
+      "imu_representation": "world"
+    },
+    {
+      "name": "staged_spatial_v1_thermal_f1",
+      "modalities": [
+        "thermal"
+      ],
+      "fusion": "cross_transformer",
+      "fold": 1,
+      "diagnostic_split": "configs/spatial_grouped_f1.json",
+      "auxiliary_weight": 0.15,
+      "thermal_view": "motion_crop",
+      "imu_representation": "raw",
+      "visual_encoder": "cnn_tokens",
+      "visual_feedforward": 384
+    },
+    {
+      "name": "staged_spatial_v1_fusion_f1",
+      "modalities": [
+        "skeleton",
+        "imu",
+        "thermal"
+      ],
+      "fusion": "cross_transformer",
+      "visual_encoder": "cnn_tokens",
+      "visual_feedforward": 384,
+      "fold": 1,
+      "diagnostic_split": "configs/spatial_grouped_f1.json",
+      "encoder_sources": [
+        "outputs/checkpoints/staged_spatial_v1_skeleton_f1/best.pt",
+        "outputs/checkpoints/staged_spatial_v1_imu_f1/best.pt",
+        "outputs/checkpoints/staged_spatial_v1_thermal_f1/best.pt"
+      ],
+      "thermal_view": "motion_crop",
+      "imu_representation": "world"
+    }
+  ],
+  "parameters": 3018496,
+  "protocol": "Seed42 causal comparison on the same grouped train/inner/outer partitions as spatial_v1_cnn_tokens. Each source is a single-modality scratch model trained only on the target fit users and selected on the same inner users. Fusion loads encoder tensors only, then fine-tunes all weights. Outer users are evaluated once after training.",
+  "hypothesis": "Independent modality objectives prevent weak-modality collapse; staged fusion should improve both auxiliary Thermal/IMU accuracy and fused outer accuracy over spatial_v1_cnn_tokens with identical target architecture.",
+  "primary_comparison": {
+    "fold0": "spatial_v1_cnn_tokens_f0",
+    "fold1": "spatial_v1_cnn_tokens_f1"
+  },
+  "selection": "Checkpoint selection uses inner accuracy. Compare staged versus end-to-end pooled outer accuracy only after both folds complete; replicate before promotion.",
+  "caveats": "Source and fusion both inspect inner labels for checkpoint selection. This does not leak outer users but increases inner selection exposure. Compute is intentionally larger than end-to-end training."
+}

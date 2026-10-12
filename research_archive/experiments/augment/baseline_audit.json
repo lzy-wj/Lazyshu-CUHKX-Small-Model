@@ -1,0 +1,57 @@
+{
+  "fold": 0,
+  "validation_users": [3, 8, 18, 23],
+  "train_clips": 2384,
+  "validation_clips": 652,
+  "selected_candidate": "75% 32-frame staged multimodal plus 25% 16-frame staged multimodal weight soup",
+  "training": {
+    "mode": "multimodal",
+    "initialization": "outputs/checkpoints/r2_depth_ir_32f_f0/best.pt",
+    "cache": "data/processed/r2plus1d_yolo_32_128",
+    "frames": 32,
+    "image_size": 128,
+    "epochs": 20,
+    "batch_size": 8,
+    "workers": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "backbone_learning_rate_factor": 0.1,
+    "weight_decay": 0.0001,
+    "warmup_epochs": 2,
+    "schedule": "cosine",
+    "ema_decay": 0.99,
+    "dropout": 0.3,
+    "auxiliary_weight": 0.15,
+    "label_smoothing": 0.03,
+    "class_balance_power": 0.0,
+    "seed": 42,
+    "patience": 8,
+    "precision": "BF16 autocast with FP32 optimizer and EMA"
+  },
+  "evaluation": {
+    "checkpoint_quantization": "per-output-channel INT8",
+    "soup_right_weight": 0.75,
+    "views": ["original", "horizontal flip", "center 75% crop", "center 75% crop plus horizontal flip"],
+    "candidate_temperature": 2.0,
+    "candidate_weight": 0.6,
+    "base_weight": 0.4,
+    "repeat_pool_power": 2,
+    "maximum_repeat_gap_seconds": 120,
+    "minimum_probability_similarity": 0.7,
+    "transition_strength": 0.4,
+    "beam_width": 100
+  },
+  "reference": {
+    "standalone_accuracy": 0.6779141104294478,
+    "available_accuracy": 0.6949685534591195,
+    "ensemble_raw_accuracy": 0.7101226993865031,
+    "decoded_accuracy": 0.7684049079754601
+  },
+  "sha256": {
+    "visual_initializer": "f7ec6646a735168b63863ef2ca61bbf6e4f9260cd05c92aa9fffcb369834d691",
+    "baseline_16_frame_checkpoint": "3e3d498c989af75526dbffb259c53c3d13cb59fb0688a472a197683e15793c77",
+    "baseline_32_frame_checkpoint": "f959a05011d878bcb78ad2196b9c77b6fbf6d4037715f58bd51a676881877a00",
+    "selected_soup_int8": "04df0a44732f664b96125dceaf12200242c560522a80bbb3d525d2719c73f5f6",
+    "cache_manifest": "5c035745f81128ea9f826a88ec9d3c65157254246b3b279bc52f949b044c824f"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "competition_limit_bytes": 100000000,
+  "assets": [
+    {
+      "path": "experiments/v24_full_refit/outputs/final/v24_full_warm60_soup_int8.pt",
+      "bytes": 65395355,
+      "sha256": "90b1b77257bbe4aa8a673554a78c24c6af25211819e41f2812b02fa8d9a0f775"
+    },
+    {
+      "path": "outputs/final_legal_multimodal_v9/models/yolo11n_compact.pt",
+      "bytes": 5545721,
+      "sha256": "11120a721121fb9d178b87cb769027f848b3dfae138db8ff08db3b6920389999"
+    },
+    {
+      "path": "experiments/v24_full_refit/outputs/final/v24_full_warm60_pseudo_head_delta.pt",
+      "bytes": 167571,
+      "sha256": "ddda4dd2db3939be5dd37428ca2f0b5c08b687a9b7b94a4a05a518b7abe13631"
+    },
+    {
+      "path": "experiments/v87_v24_highres_transfer/outputs/v24_highres_pseudo_head_delta.pt",
+      "bytes": 167499,
+      "sha256": "675cd166dac5af8e8aff647ca8117331910b9db15439358d378069cd488cfe9b"
+    },
+    {
+      "path": "experiments/v103_full_protected_adapters/outputs/v103_full_protected_dual/adapter.pt",
+      "bytes": 1248787,
+      "sha256": "87f4bc47c45bd258610c2682f89d97c9cba56f20dac68717a27f09c65ce52176"
+    },
+    {
+      "path": "experiments/v104_domain_gated_adapters/outputs/v104_target_old_cross/adapted_state.pt",
+      "bytes": 1415199,
+      "sha256": "6e47674b8f3fbe25b9c818c4fcf5f3f84791a57e3245a2140ce08e54da3ad590"
+    },
+    {
+      "path": "experiments/v104_domain_gated_adapters/outputs/v104_target_refreshed_cross/adapted_state.pt",
+      "bytes": 1415199,
+      "sha256": "aef6bba04a37c1c3d112c493f2a6026c89c7822743fc1f9faca9b3d4a27c2e03"
+    }
+  ],
+  "total_bytes": 75355331,
+  "slack_bytes": 24644669,
+  "pass": true
+}

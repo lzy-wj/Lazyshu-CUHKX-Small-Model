@@ -1,0 +1,29 @@
+name: Reproduction bug
+description: Report a reproducibility or runtime issue
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please do not upload competition data, credentials, or raw sensor samples.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, PyTorch, CUDA, and GPU
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: hashes
+    attributes:
+      label: Artifact hash check
+      description: State whether the release bundle and artifact checks passed
+    validations:
+      required: true
+

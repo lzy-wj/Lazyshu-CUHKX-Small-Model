@@ -1,0 +1,43 @@
+{
+  "selected_on": "fold0",
+  "names": [
+    "mobile_f0",
+    "canonical_pose_f0",
+    "efficient_f0"
+  ],
+  "weights": [
+    0.2,
+    0.1,
+    0.7
+  ],
+  "temperatures": [
+    1.228330254512121,
+    1.2643666836663014,
+    1.1982447831783827
+  ],
+  "selection_metrics": {
+    "weights": [
+      0.2,
+      0.1,
+      0.7
+    ],
+    "accuracy": 0.5460122699386503,
+    "balanced_accuracy": 0.4964100021113504,
+    "supported_classes": 39,
+    "macro_f1": 0.47346454840171565,
+    "nll": 1.7851173615344216
+  },
+  "confirmation_users": [
+    5,
+    7,
+    17,
+    22
+  ],
+  "final_models": [
+    "final_mobile",
+    "final_pose",
+    "final_efficient"
+  ],
+  "test_labels_used": false,
+  "kaggle_submission": false
+}

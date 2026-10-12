@@ -1,0 +1,31 @@
+{
+  "names": [
+    "v3_x3d_f0",
+    "v2_person_multi_f0",
+    "v2_person_ir_f0",
+    "v2_statistics_f0"
+  ],
+  "final_models": [
+    "v3_final_x3d",
+    "v2_final_person_multi",
+    "v2_final_person_ir",
+    "v2_final_statistics"
+  ],
+  "weights": [
+    0.6000000000000001,
+    0.19999999999999996,
+    0.07999999999999999,
+    0.11999999999999997
+  ],
+  "temperatures": [
+    0.9736012920941253,
+    1.156757778331949,
+    1.2146341263961762,
+    1.1338148770999141
+  ],
+  "selection_fold": 0,
+  "selection_accuracy": 0.6687116564417178,
+  "frozen_at": "2026-09-07T09:19:17+08:00",
+  "protocol": "Preserve the complete V2 blend and its temperatures. Fit only X3D temperature and a single 21-point mixing weight on fold 0, transfer unchanged to fold 1. Checkpoints selected within each fold.",
+  "eligibility": "AI-assisted research, external small-model pretraining; competition eligibility unresolved. No automatic submission."
+}

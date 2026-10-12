@@ -1,0 +1,23 @@
+{
+  "entrypoint": "bash inference.sh <official_testing_dir> <output_csv>",
+  "tested_submission_id": "56174717",
+  "rows": 405,
+  "output_sha256": "76210e13f1f63a3d63c356f2462aa09917a6d9c0c919a0e8025098ab4408acb0",
+  "reference_sha256": "76210e13f1f63a3d63c356f2462aa09917a6d9c0c919a0e8025098ab4408acb0",
+  "byte_exact": true,
+  "preprocessing_seconds": 76.21096358913928,
+  "model_inference_seconds": 311.16522386856377,
+  "elapsed_seconds": 407.76795479282737,
+  "peak_cuda_memory_gb": 13.491401216,
+  "model_asset_bytes": 84094248,
+  "primary_rollback_positions": [107, 333, 337, 350],
+  "v164_changed_positions": [5, 252, 285, 305, 334, 335, 340],
+  "tested_environment": {
+    "os": "Ubuntu 22.04 LTS",
+    "gpu": "NVIDIA A800-SXM4-80GB",
+    "driver": "580.126.20",
+    "python": "3.12.12",
+    "torch": "2.9.1+cu128",
+    "torchvision": "0.24.1+cu128"
+  }
+}

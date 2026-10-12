@@ -1,0 +1,32 @@
+{
+  "protocol": "docs/V24_EXPERIMENT_PROTOCOL_20260910.md",
+  "fit_scope": {
+    "fold": -1,
+    "train_clips": 3036,
+    "selection_source": "fold0_only",
+    "test_labels_used": false
+  },
+  "effective_seed": 42,
+  "trainer_seed_argument": 43,
+  "trainer_seed_note": "train_r2plus1d.py evaluates seed + fold; fold=-1 therefore needs --seed 43 to preserve effective seed 42",
+  "architecture": {
+    "mode": "shared_multimodal",
+    "visual_strategy": "joint",
+    "radar": false,
+    "frames": 32,
+    "deployment_image_size": 128
+  },
+  "sources": [
+    {"name": "no_radar", "epochs": 13, "weight": 0.082416},
+    {"name": "cross_user", "epochs": 16, "weight": 0.079504},
+    {"name": "progressive160", "epochs": 7, "weight": 0.148508},
+    {"name": "scratch_maskdistill", "epochs": 16, "weight": 0.089572},
+    {"name": "warm_maskdistill", "epochs": 9, "weight": 0.6}
+  ],
+  "selection_rule": "V23 Fold-0 top1, then NLL; weights and epochs frozen before full-data fitting",
+  "primary_quantization": "per-tensor INT8",
+  "fallback_quantization": "uniform grouped INT4 with INT8 shallow/fusion prefixes",
+  "decoder": "frozen V13 pair-aware decoder",
+  "asset_target_bytes": 95000000,
+  "competition_limit_bytes": 100000000
+}

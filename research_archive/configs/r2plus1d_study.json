@@ -1,0 +1,24 @@
+{
+  "cache": "data/processed/r2plus1d_yolo_16_128",
+  "input": "16 x 4 x 128 x 128; YOLO11n fixed crop; Depth_Color RGB + IR grayscale",
+  "folds": {
+    "0": [3, 8, 18, 23],
+    "1": [5, 7, 17, 22]
+  },
+  "experiments": [
+    {
+      "mode": "visual",
+      "purpose": "Reproduce the public R(2+1)D visual baseline"
+    },
+    {
+      "mode": "multimodal",
+      "purpose": "Add scratch skeleton and world-frame IMU encoders with Transformer fusion"
+    }
+  ],
+  "initializations": [
+    "kinetics",
+    "scratch control"
+  ],
+  "precision": "BF16 training; per-output-channel INT8 checkpoint",
+  "selection": "User-isolated validation only; no test labels or timestamp-to-label matching"
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(cd "$(dirname "$0")" && pwd)/common.sh"
+
+GPU="${1:?Usage: $0 GPU}"
+NAME="v24_full_crossuser_e16"
+assert_new_training_run "$NAME"
+
+run_logged "$NAME" "$GPU" "$PYTHON" -B "$ROOT/scripts/train_r2plus1d.py" \
+  --name "$NAME" --fold -1 \
+  --mode shared_multimodal --initialization kinetics \
+  --weights "$ROOT/.tools/checkpoints/r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth" \
+  --cache-dir "$ROOT/data/processed/r2plus1d_yolo_all_visual_32_128" \
+  --frames 32 --image-size 128 --epochs 16 --batch-size 8 --workers 4 \
+  --lr 0.0003 --backbone-lr-factor 0.1 --weight-decay 0.0001 --warmup-epochs 2 \
+  --ema-decay 0.99 --dropout 0.3 --auxiliary-weight 0.15 --label-smoothing 0.03 \
+  --class-balance-power 0 --seed 43 --patience 20 --eval-every 1 \
+  --mixup-alpha 0.3 --visual-strategy joint \
+  --cross-user-contrastive-weight 0.05 --contrastive-temperature 0.1 \
+  --contrastive-queue-size 2048 --contrastive-class-cap 64 \
+  --contrastive-class-user-cap 16 --contrastive-warmup-items 1024 \
+  --allow-method-combination \
+  --output-root "$OUTPUT_ROOT" --swanlab-mode "$SWANLAB_MODE"

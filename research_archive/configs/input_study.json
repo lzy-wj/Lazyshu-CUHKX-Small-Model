@@ -1,0 +1,28 @@
+{
+  "name": "input_study_v1",
+  "architecture_policy": ["CNN", "RNN", "Transformer"],
+  "external_pretrained_weights": false,
+  "fold": 0,
+  "seed": 42,
+  "epochs": 60,
+  "batch_size": 24,
+  "frames": 16,
+  "image_size": 160,
+  "lr": 0.001,
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 60,
+  "gpus": [2, 3, 7],
+  "queue_hours": 3,
+  "jobs": [
+    {"name": "input_v1_imu_world_f0", "modalities": ["imu"], "fusion": "concat", "imu_representation": "world"},
+    {"name": "input_v1_thermal_motion_f0", "modalities": ["thermal"], "fusion": "concat", "thermal_view": "motion_crop"},
+    {"name": "input_v1_imu_raw_f1", "modalities": ["imu"], "fusion": "concat", "fold": 1},
+    {"name": "input_v1_imu_world_f1", "modalities": ["imu"], "fusion": "concat", "imu_representation": "world", "fold": 1},
+    {"name": "input_v1_thermal_full_f1", "modalities": ["thermal"], "fusion": "concat", "fold": 1},
+    {"name": "input_v1_thermal_motion_f1", "modalities": ["thermal"], "fusion": "concat", "thermal_view": "motion_crop", "fold": 1}
+  ],
+  "baseline_f0": ["scratch_v1_imu_f0", "scratch_v1_thermal_f0"],
+  "selection": "Use full original fold training pools and unseen-user validation for checkpoint selection, matching the original single-modality baselines. This is model development, not the prior same-user diagnostic protocol. Both folds have historical exposure.",
+  "promotion": "Input change must improve the corresponding original modality on both folds before fusion. Network, optimizer, augmentation, sample coverage and parameter count stay unchanged."
+}

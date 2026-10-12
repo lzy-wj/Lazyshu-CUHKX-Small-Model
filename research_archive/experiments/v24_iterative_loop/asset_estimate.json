@@ -1,0 +1,15 @@
+{
+  "source_checkpoint": "${LAZYSHU_PROJECT_ROOT}/experiments/scene_context_v13/outputs/v23_parameter_soup_warm60_fp32_f0.pt",
+  "base_parameters": 64953671,
+  "iterative_parameters": 64961928,
+  "incremental_parameters": 8257,
+  "parameter_count_is_independent_of_k": true,
+  "extra_state_bytes_fp16": 16514,
+  "estimated_full_state_bytes_fp16": 130024984,
+  "exact_int8_tensor_bytes": 65254089,
+  "deployment_target_bytes": 95000000,
+  "under_target": true,
+  "cached_token_bytes_per_sample_bf16_v23": 16896,
+  "fusion_flops_per_iteration_per_sample_estimate": 34732800,
+  "assumptions": "V23 has 3x4 visual + 16 skeleton + 16 IMU tokens; two fusion layers, d=192, FFN=576."
+}

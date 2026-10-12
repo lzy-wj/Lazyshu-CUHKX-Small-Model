@@ -1,0 +1,5 @@
+{
+  "names": ["v3_shift_f0", "v3_spatial_f0"],
+  "status": "pruned_not_completed",
+  "reason": "Stopped after at least 32 epochs: both best fold-0 accuracies remained below 55%, while the X3D candidate exceeded 64%. Retain checkpoints and logs; do not interpret SIGINT exit as a model bug or completed training."
+}

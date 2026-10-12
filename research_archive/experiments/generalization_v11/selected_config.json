@@ -1,0 +1,22 @@
+{
+  "name": "v11_conditional_adversarial_rescue",
+  "training_method": "action-conditioned training-user adversary through gradient reversal",
+  "subject_adversarial_weight": 0.05,
+  "conditional_endpoint_weight_within_r2": 0.5,
+  "historical_endpoint_weight_within_r2": 0.5,
+  "r2plus1d_weight": 0.425,
+  "base_weight": 0.575,
+  "r2plus1d_temperature": 1.125,
+  "x3d_l_auxiliary_weight": 0.1,
+  "x3d_l_maximum_base_confidence": 0.15,
+  "repeat_pool_power": 2,
+  "transition_strength": 0.4,
+  "selection_fold": 0,
+  "selection_rule": "highest decoded score among configurations shortlisted by ensemble raw accuracy or NLL; all values frozen before fold 1",
+  "fold0_selected_metrics": {
+    "standalone_accuracy": 0.6871165644171779,
+    "ensemble_raw_accuracy": 0.7055214723926381,
+    "decoded_accuracy": 0.7745398773006135,
+    "decoded_correct": 505
+  }
+}

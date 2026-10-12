@@ -1,0 +1,42 @@
+{
+  "name": "final_legal_multimodal_v7",
+  "base_models": [
+    {
+      "name": "v3_final_x3d_int8",
+      "weight_within_base": 0.83,
+      "temperature": 0.9736012920941253
+    },
+    {
+      "name": "v2_final_statistics_int8",
+      "weight_within_base": 0.17,
+      "temperature": 1.1338148770999141
+    }
+  ],
+  "r2plus1d": {
+    "name": "r2_staged_soup_full_w075_int8",
+    "right_checkpoint_weight": 0.75,
+    "frames": 32,
+    "weight": 0.6,
+    "temperature": 2.0,
+    "tta": "original, horizontal flip, center 75% crop, center 75% crop plus horizontal flip"
+  },
+  "base_weight": 0.4,
+  "repeat_decoder": {
+    "round_gap_seconds": 30,
+    "maximum_repeat_gap_seconds": 120,
+    "minimum_probability_similarity": 0.7,
+    "unique_labels_per_round": true,
+    "transition_strength": 0.4,
+    "transition_scope": "official acquisition environment"
+  },
+  "validation": {
+    "raw_fold_accuracy": [0.7055214723926381, 0.7872340425531915],
+    "decoded_fold_accuracy": [0.7653374233128835, 0.8326241134751773],
+    "decoded_weighted_accuracy": 0.8002947678703022
+  },
+  "official_public_score": 0.82089,
+  "official_submission_ref": 56082954,
+  "selection_protocol": "All scalar settings selected on fold 0 and applied unchanged to fold 1; fold-specific checkpoints selected only on their own validation users.",
+  "test_information_policy": "No test labels, user IDs, trial IDs, leaked metadata, manual labels, or timestamp-to-label mapping. Acquisition intervals recover repeated unlabeled rounds and assign the two official collection environments by proximity to training collection dates.",
+  "model_asset_bytes": 94972634
+}

@@ -1,0 +1,29 @@
+{
+  "training": [
+    "outputs/checkpoints/v24_full_noradar_e13/best.pt",
+    "outputs/checkpoints/v24_full_crossuser_e16/best.pt",
+    "outputs/checkpoints/v24_full_progressive160_e7/best.pt",
+    "outputs/checkpoints/v24_full_scratch_maskdistill_e16/best.pt",
+    "outputs/checkpoints/v24_full_warm_maskdistill_e9/best.pt"
+  ],
+  "final_models": [
+    "outputs/final/v24_full_warm60_soup_fp32.pt",
+    "outputs/final/v24_full_warm60_soup_int8.pt",
+    "outputs/final/v24_full_warm60_soup_int4.pt"
+  ],
+  "predictions": [
+    "outputs/predictions/v24_full_warm60_int8_tta.npz",
+    "outputs/predictions/v24_full_warm60_int8_pair_aware.npz"
+  ],
+  "submissions_not_uploaded": [
+    "outputs/submissions/v24_full_warm60_int8_tta_raw.csv",
+    "outputs/submissions/v24_full_warm60_int8_pair_aware.csv"
+  ],
+  "reports": [
+    "outputs/reports/v24_full_warm60_int8_predict.json",
+    "outputs/reports/v24_full_warm60_int8_pair_aware.json",
+    "outputs/reports/release_audit.json"
+  ],
+  "run_records": "run_metadata/*.json",
+  "logs": "outputs/logs/*.log"
+}

@@ -1,0 +1,7 @@
+{
+  "input": "outputs/checkpoints/v129_mvit_full_conservative/best.pt",
+  "output": "experiments/v129_full_mvit_refit/deploy/v129_mvit_full_conservative_fp16.pt",
+  "input_bytes": 145003696,
+  "output_bytes": 72619668,
+  "sha256": "b2e3bd948b2ffe7211ee7f060c59a3e34a126ed2a254b47e5f3ff843c9942376"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "skeleton_regularization_v1",
+  "hypothesis": "Preserve the original coordinate information, but penalize memorization using mixed training inputs and targets.",
+  "modalities": ["skeleton"],
+  "skeleton_representation": "coordinates",
+  "single_modality_mixup": true,
+  "mixup": 0.2,
+  "mixing_probability": 0.5,
+  "epochs": 60,
+  "seed": 42,
+  "folds": [0, 1],
+  "selection": "Same-user inner validation selects checkpoints; unseen-user outer validation is diagnostic only.",
+  "promotion": "Require outer improvement on both folds without inner collapse before seed replication; otherwise reject. No automatic fusion or submission.",
+  "baseline_runs": ["validation_v1_skeleton_f0", "representation_v1_coordinates_f1"],
+  "training_accuracy_caveat": "With mixup, train/accuracy uses the primary label and is not directly comparable with unmixed training accuracy. Compare clean_train diagnostics instead.",
+  "mask_policy": "Training filters absent skeleton clips. Mixing asserts every mask is exactly one, changes only the feature tensor, and never creates fractional masks. Both validation sets retain all clips."
+}

@@ -1,0 +1,28 @@
+{
+  "names": [
+    "v3_x3d_f0",
+    "v4_jointstats_f0",
+    "v2_statistics_f0"
+  ],
+  "final_models": [
+    "v3_final_x3d",
+    "v4_final_jointstats",
+    "v2_final_statistics"
+  ],
+  "weights": [
+    0.3825,
+    0.4675,
+    0.15
+  ],
+  "temperatures": [
+    0.9736012920941253,
+    1.1512777825981646,
+    1.1338148770999141
+  ],
+  "selection_fold": 0,
+  "selection_accuracy": 0.6748466257668712,
+  "baseline_retained": false,
+  "frozen_at": "2026-09-07T10:42:18+08:00",
+  "protocol": "Fold-0-only temperatures and predeclared 21-point pair mixing, fixed 0.15 statistical weight; unchanged V3 is a fallback. Transfer unchanged to fold 1. Each fold selects its checkpoint on its own validation set; not an unbiased test estimate.",
+  "eligibility": "AI-assisted research, external small-model pretraining; competition eligibility unresolved. No automatic submission."
+}

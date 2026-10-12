@@ -1,0 +1,10 @@
+{
+  "bundle": "outputs/final_v3",
+  "prediction_csv": "outputs/final_v3/research_multimodal_v3.csv",
+  "csv_sha256": "be74328cdedc758eb6cbfb9b83b69f9b4311df7b61667ec814320bea23927e30",
+  "model_bytes": 93899259,
+  "target_achieved": false,
+  "test_accuracy": null,
+  "reason": "V4 failed the fold-1 non-regression gate; additional bounded studies failed fold-0 promotion gates.",
+  "updated_at": "2026-09-07T11:44:16+08:00"
+}

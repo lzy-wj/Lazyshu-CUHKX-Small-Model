@@ -1,0 +1,43 @@
+{
+  "name": "test_domain_matched_validation_v1",
+  "primary_validation_users": {
+    "fold0": [8, 18, 23],
+    "fold1": [7, 17, 22]
+  },
+  "excluded_from_primary_metric": {
+    "users": [3, 5],
+    "reason": "Their unmatched environment-0 domain has zero rows in the test set. They remain a safety diagnostic."
+  },
+  "domains": {
+    "1": {
+      "description": "unmatched environment 1",
+      "validation_users": [23, 22],
+      "test_rows": 76,
+      "weight": 0.18765432098765433
+    },
+    "2": {
+      "description": "paired-source environment 0",
+      "validation_users": [8, 7],
+      "test_rows": 199,
+      "weight": 0.49135802469135803
+    },
+    "3": {
+      "description": "paired-source environment 1",
+      "validation_users": [18, 17],
+      "test_rows": 130,
+      "weight": 0.32098765432098764
+    }
+  },
+  "selection_order": [
+    "test-domain-weighted OOF accuracy",
+    "minimum accuracy across domains 1/2/3",
+    "old eight-user OOF non-regression",
+    "V24 test agreement as a label-free guardrail"
+  ],
+  "public_best_reference": {
+    "model": "V24",
+    "public_correct": 183,
+    "public_rows": 201,
+    "usage": "guardrail only; do not train directly on its hard labels"
+  }
+}

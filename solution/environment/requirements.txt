@@ -1,0 +1,17 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.9.1
+torchvision==0.24.1
+numpy==2.4.6
+pandas==3.0.5
+scipy==1.15.3
+Pillow==12.2.0
+PyYAML==6.0.3
+tqdm==4.67.3
+ultralytics==8.4.142
+opencv-python==5.0.0.93
+psutil==7.2.2
+matplotlib==3.10.9
+requests==2.34.2
+ultralytics-thop==2.1.6
+polars==1.44.1
+polars-runtime-32==1.44.1

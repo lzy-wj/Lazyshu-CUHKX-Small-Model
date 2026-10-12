@@ -1,0 +1,36 @@
+schema_version: 1
+team: Lazyshu
+track: small
+primary_submission_id: "56174717"
+secondary_submission_id: "56243275"
+training_seeds: [42, 43]
+inference_seed: 0
+precision:
+  stored_base: int8_per_tensor
+  neural_compute: bfloat16_autocast
+  postprocessing: float32_and_float64
+runtime:
+  batch_size: 16
+  workers: 4
+  frames: 32
+  image_sizes: [128, 160]
+  yolo_detection_batch_size: 64
+  tta_horizontal_flip: true
+  tta_crop_scale: 0.75
+architecture:
+  visual: shared_r2plus1d34_cnn
+  skeleton: temporal_cnn
+  imu: conv_lstm
+  fusion: two_layer_transformer
+  classes: 40
+  base_parameters: 64953671
+modalities:
+  neural_inputs: [Depth_Color, Thermal, IR, Skeleton, IMU]
+  structural_timestamp_only: [Radar]
+artifacts:
+  inventory: configs/artifact_hashes.json
+  base: artifacts/v24_full_warm60_soup_int8.pt
+  detector: artifacts/yolo11n_compact.pt
+  decoder: artifacts/decoder_state.json
+unknown_date_route: v71_unmatched
+network_during_inference: false

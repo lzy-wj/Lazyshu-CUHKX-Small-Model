@@ -1,0 +1,26 @@
+{
+  "protocol": "Top three Fold-0 gate passers advance blind to Fold 1",
+  "ranked": [
+    {
+      "slug": "v65_film_pervisual_aux",
+      "advance_fold1": true,
+      "pair_correct": 568,
+      "raw_correct": 560,
+      "candidate_raw_correct": 478,
+      "nll": 0.8304473691264586,
+      "weight": 0.0
+    },
+    {
+      "slug": "v63_film_maskdistill",
+      "advance_fold1": false,
+      "pair_correct": 568,
+      "raw_correct": 560,
+      "candidate_raw_correct": 467,
+      "nll": 0.8304473691264586,
+      "weight": 0.0
+    }
+  ],
+  "selected": [
+    "v65_film_pervisual_aux"
+  ]
+}

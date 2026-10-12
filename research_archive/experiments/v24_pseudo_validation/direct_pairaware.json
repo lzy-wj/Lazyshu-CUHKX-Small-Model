@@ -1,0 +1,23 @@
+{
+  "protocol": "Apply the frozen pair-aware decoder directly to each V23 probability archive without V13/V14 probability blending.",
+  "fold0": {
+    "base_correct": 540,
+    "adapted_correct": 550,
+    "composite_correct": 540,
+    "rows": 652
+  },
+  "fold1": {
+    "base_correct": 613,
+    "adapted_correct": 618,
+    "composite_correct": 610,
+    "rows": 705
+  },
+  "combined": {
+    "base_correct": 1153,
+    "adapted_correct": 1168,
+    "composite_correct": 1150,
+    "rows": 1357,
+    "adapted_gain": 15
+  },
+  "decision": "Use adapted probabilities for every test row before pair-aware decoding; retain the unmatched-only composite only as a diagnostic artifact."
+}

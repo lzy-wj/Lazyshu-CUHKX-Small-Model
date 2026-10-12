@@ -1,0 +1,2 @@
+swanlab==0.8.4
+scikit-learn==1.9.0

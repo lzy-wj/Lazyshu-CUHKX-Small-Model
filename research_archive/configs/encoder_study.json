@@ -1,0 +1,43 @@
+{
+  "name": "encoder_study_v1",
+  "architecture_policy": ["CNN", "RNN", "Transformer"],
+  "external_pretrained_weights": false,
+  "fold": 0,
+  "seed": 42,
+  "epochs": 60,
+  "schedule_epochs": 60,
+  "batch_size": 24,
+  "frames": 16,
+  "image_size": 160,
+  "lr": 0.001,
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 120,
+  "visual_multiplier": 1,
+  "gpus": [2, 3, 7],
+  "jobs": [
+    {"name": "encoder_v1_depth_long_f0", "modalities": ["scene_depth"], "fusion": "concat", "epochs": 120},
+    {"name": "encoder_v1_depth_wide_f0", "modalities": ["scene_depth"], "fusion": "concat", "visual_multiplier": 2},
+    {
+      "name": "encoder_v1_staged_concat_f0", "modalities": ["scene_ir", "thermal", "scene_depth", "skeleton", "imu", "radar"], "fusion": "concat",
+      "encoder_sources": [
+        "outputs/checkpoints/scratch_v1_ir_f0/best.pt", "outputs/checkpoints/scratch_v1_thermal_f0/best.pt",
+        "outputs/checkpoints/scratch_v1_depth_f0/best.pt", "outputs/checkpoints/scratch_v1_skeleton_f0/best.pt",
+        "outputs/checkpoints/scratch_v1_imu_f0/best.pt", "outputs/checkpoints/scratch_v1_radar_f0/best.pt"
+      ]
+    },
+    {"name": "encoder_v1_concat_long_f0", "modalities": ["scene_ir", "thermal", "scene_depth", "skeleton", "imu", "radar"], "fusion": "concat", "epochs": 120},
+    {
+      "name": "encoder_v1_staged_transformer_f0", "modalities": ["scene_ir", "thermal", "scene_depth", "skeleton", "imu", "radar"], "fusion": "transformer",
+      "encoder_sources": [
+        "outputs/checkpoints/scratch_v1_ir_f0/best.pt", "outputs/checkpoints/scratch_v1_thermal_f0/best.pt",
+        "outputs/checkpoints/scratch_v1_depth_f0/best.pt", "outputs/checkpoints/scratch_v1_skeleton_f0/best.pt",
+        "outputs/checkpoints/scratch_v1_imu_f0/best.pt", "outputs/checkpoints/scratch_v1_radar_f0/best.pt"
+      ]
+    }
+  ],
+  "duration_control": "Keep the original 60-epoch cosine schedule, then hold the terminal learning rate for epochs 61-120; never restart the cosine cycle",
+  "staged_control": "Load only encoders from the completed same-fold scratch single-modality runs; initialize fusion and classification heads randomly; jointly train all parameters for 60 epochs",
+  "budget_caveat": "Staged training includes extra supervised single-modality optimization and validation checkpoint selection. Direct concat 120 epochs is an additional duration control, not an exact compute- or schedule-matched causal experiment",
+  "selection": "Exploratory fold 0 only; no automatic fold 1, full-data refit, model replacement or Kaggle submission"
+}

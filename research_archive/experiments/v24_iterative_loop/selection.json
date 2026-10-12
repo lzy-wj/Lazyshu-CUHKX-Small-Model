@@ -1,0 +1,29 @@
+{
+  "protocol": "Fold0 only: correct descending, NLL ascending, missing-visual correct descending.",
+  "candidates": [
+    {
+      "iterations": 1,
+      "correct": 478,
+      "nll": 1.2464693784713745,
+      "visual_missing_correct": 21,
+      "path": "${LAZYSHU_PROJECT_ROOT}/experiments/v24_iterative_loop/outputs/v24_iterative_k1_f0/completion.json"
+    },
+    {
+      "iterations": 2,
+      "correct": 478,
+      "nll": 1.2140731811523438,
+      "visual_missing_correct": 21,
+      "path": "${LAZYSHU_PROJECT_ROOT}/experiments/v24_iterative_loop/outputs/v24_iterative_k2_f0/completion.json"
+    },
+    {
+      "iterations": 3,
+      "correct": 475,
+      "nll": 1.3355048894882202,
+      "visual_missing_correct": 24,
+      "path": "${LAZYSHU_PROJECT_ROOT}/experiments/v24_iterative_loop/outputs/v24_iterative_k3_f0/completion.json"
+    }
+  ],
+  "selected_iterations": 2,
+  "fold0_promotion_gate_passed": false,
+  "fold1_authorization": "Run exactly selected_iterations once; do not run other K values on Fold1."
+}

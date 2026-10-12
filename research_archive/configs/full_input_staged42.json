@@ -1,0 +1,200 @@
+{
+  "name": "full_input_staged42_v1",
+  "workers": 4,
+  "eval_every": 2,
+  "patience": 120,
+  "gpus": [
+    2,
+    3,
+    7
+  ],
+  "queue_hours": 3,
+  "jobs": [
+    {
+      "modalities": [
+        "skeleton"
+      ],
+      "seed": 42,
+      "batch_size": 24,
+      "frames": 16,
+      "image_size": 160,
+      "lr": 0.001,
+      "fusion": "concat",
+      "skeleton_representation": "coordinates",
+      "imu_representation": "raw",
+      "thermal_view": "full",
+      "visual_multiplier": 1,
+      "name": "full_input_v1_skeleton",
+      "fold": -1,
+      "epochs": 10,
+      "schedule_epochs": 47,
+      "warmup_epochs": 3.8934426229508197
+    },
+    {
+      "modalities": [
+        "imu"
+      ],
+      "seed": 42,
+      "batch_size": 24,
+      "frames": 16,
+      "image_size": 160,
+      "lr": 0.001,
+      "fusion": "concat",
+      "skeleton_representation": "coordinates",
+      "imu_representation": "world",
+      "thermal_view": "full",
+      "visual_multiplier": 1,
+      "name": "full_input_v1_imu_world",
+      "fold": -1,
+      "epochs": 15,
+      "schedule_epochs": 47,
+      "warmup_epochs": 3.9285714285714284
+    },
+    {
+      "modalities": [
+        "thermal"
+      ],
+      "seed": 42,
+      "batch_size": 24,
+      "frames": 16,
+      "image_size": 160,
+      "lr": 0.001,
+      "fusion": "concat",
+      "skeleton_representation": "coordinates",
+      "imu_representation": "raw",
+      "thermal_view": "motion_crop",
+      "visual_multiplier": 1,
+      "name": "full_input_v1_thermal_motion",
+      "fold": -1,
+      "epochs": 12,
+      "schedule_epochs": 46,
+      "warmup_epochs": 3.875
+    },
+    {
+      "modalities": [
+        "skeleton",
+        "imu",
+        "thermal"
+      ],
+      "seed": 42,
+      "batch_size": 24,
+      "frames": 16,
+      "image_size": 160,
+      "lr": 0.001,
+      "fusion": "transformer",
+      "skeleton_representation": "coordinates",
+      "imu_representation": "world",
+      "thermal_view": "motion_crop",
+      "visual_multiplier": 1,
+      "name": "full_input_v1_staged42",
+      "fold": -1,
+      "epochs": 20,
+      "schedule_epochs": 47,
+      "warmup_epochs": 3.888888888888889,
+      "encoder_sources": [
+        "outputs/checkpoints/full_input_v1_skeleton/best.pt",
+        "outputs/checkpoints/full_input_v1_imu_world/best.pt",
+        "outputs/checkpoints/full_input_v1_thermal_motion/best.pt"
+      ]
+    }
+  ],
+  "protocol": "Full-data refit. Match mean best optimizer-update budget from two user folds, preserving warmup and cosine horizon. No validation or test-based checkpoint selection during refit.",
+  "provenance": [
+    {
+      "name": "full_input_v1_skeleton",
+      "sources": [
+        "scratch_v1_skeleton_f0",
+        "input_v1_skeleton_f1"
+      ],
+      "source_sha256": [
+        "021efdc7cf7a208eda4ccc2c8d2fad13f2faf6b45d7b44665e82bc36462ee013",
+        "1cf482a6c7d2fc5b3809e14215e73c1da633ee83f5264a5bc98c976fbf5c5837"
+      ],
+      "source_best_epochs": [
+        12,
+        14
+      ],
+      "selected_optimizer_updates": [
+        1140,
+        1330
+      ],
+      "full_training_clips": 2931,
+      "full_steps_per_epoch": 122,
+      "full_epochs": 10,
+      "full_schedule_epochs": 47,
+      "full_warmup_epochs": 3.8934426229508197
+    },
+    {
+      "name": "full_input_v1_imu_world",
+      "sources": [
+        "input_v1_imu_world_f0",
+        "input_v1_imu_world_f1"
+      ],
+      "source_sha256": [
+        "b98a3d6a334cbf6244bed7c04823e52a648252937dec08bec27b38b69a6d9ac5",
+        "278505d765dd0239963da2b09299f79549dc8f2127c2b2b97c8c1a60a1eaed71"
+      ],
+      "source_best_epochs": [
+        20,
+        18
+      ],
+      "selected_optimizer_updates": [
+        1860,
+        1692
+      ],
+      "full_training_clips": 2863,
+      "full_steps_per_epoch": 119,
+      "full_epochs": 15,
+      "full_schedule_epochs": 47,
+      "full_warmup_epochs": 3.9285714285714284
+    },
+    {
+      "name": "full_input_v1_thermal_motion",
+      "sources": [
+        "input_v1_thermal_motion_f0",
+        "input_v1_thermal_motion_f1"
+      ],
+      "source_sha256": [
+        "5e265232e67523b91efcc50c61151c0be06f71b3f6aac6a1e2678bf694afdf6c",
+        "4a075a39b64a53b33a69acdc3f46566f66bd2e9a5d155a8184546700e0e2dc2d"
+      ],
+      "source_best_epochs": [
+        14,
+        16
+      ],
+      "selected_optimizer_updates": [
+        1316,
+        1472
+      ],
+      "full_training_clips": 2891,
+      "full_steps_per_epoch": 120,
+      "full_epochs": 12,
+      "full_schedule_epochs": 46,
+      "full_warmup_epochs": 3.875
+    },
+    {
+      "name": "full_input_v1_staged42",
+      "sources": [
+        "fusion_input_v1_staged_f0",
+        "fusion_input_v1_staged_f1"
+      ],
+      "source_sha256": [
+        "fc45ac669a4861dab50b7e1e7115bbff18957765a200b812b267175c8b1c97e5",
+        "9e8c04133546d60e08e63a3f3070c4d42b9a7d2192ec61a91d2882d05c1d1b87"
+      ],
+      "source_best_epochs": [
+        46,
+        4
+      ],
+      "selected_optimizer_updates": [
+        4554,
+        388
+      ],
+      "full_training_clips": 3036,
+      "full_steps_per_epoch": 126,
+      "full_epochs": 20,
+      "full_schedule_epochs": 47,
+      "full_warmup_epochs": 3.888888888888889
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the repository and technical report."
+title: "Lazyshu: Compact Multimodal Activity Recognition under Cross-Subject Shift"
+type: software
+authors:
+  - family-names: Liu
+    given-names: Zhaoyang
+    email: lazy@bupt.edu.cn
+year: 2026
+license: Apache-2.0
+version: 1.0.0
+abstract: >-
+  A compact CUHK-X activity-recognition system combining shared spatiotemporal
+  encoding, masked multimodal fusion, protected adapters, deterministic
+  supervision routing, and evidence-gated structural decoding under a 100 MB
+  runtime-asset limit.
+

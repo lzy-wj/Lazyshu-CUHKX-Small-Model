@@ -1,0 +1,38 @@
+{
+  "name": "v9_fold0_ablation_baseline",
+  "fold": 0,
+  "seed": 42,
+  "left_checkpoint": {
+    "path": "outputs/checkpoints/r2_staged_multimodal_f0/best.pt",
+    "bytes": 130150118,
+    "sha256": "3e3d498c989af75526dbffb259c53c3d13cb59fb0688a472a197683e15793c77",
+    "weight": 0.25
+  },
+  "right_checkpoint": {
+    "path": "outputs/checkpoints/r2_depth_ir_32f_staged_f0/best.pt",
+    "bytes": 130150182,
+    "sha256": "f959a05011d878bcb78ad2196b9c77b6fbf6d4037715f58bd51a676881877a00",
+    "weight": 0.75
+  },
+  "soup_checkpoint": {
+    "path": "outputs/checkpoints/r2_staged_soup_f0_w075/best_int8.pt",
+    "bytes": 65383627,
+    "sha256": "04df0a44732f664b96125dceaf12200242c560522a80bbb3d525d2719c73f5f6"
+  },
+  "prediction": {
+    "path": "outputs/study_r2plus1d/r2_staged_soup_f0_w075_crop075.npz",
+    "sha256": "d1fc7b9029ee34267edf3400597d69d3f898b7b89c09493ed69a9486686debb6"
+  },
+  "fixed_inputs": {
+    "base_prediction_sha256": "56d3391584759fa8e2b44d96132ec02255ad533ea9f5c9464ac98172e836bf3e",
+    "x3dl_auxiliary_sha256": "d6a949fdcabed8aa45a92362f8a4c70607613ff6a04a503faee8c1d61205cda5",
+    "cache_manifest_sha256": "5c035745f81128ea9f826a88ec9d3c65157254246b3b279bc52f949b044c824f"
+  },
+  "metrics": {
+    "standalone_accuracy": 0.6779141104294478,
+    "available_accuracy": 0.6949685534591195,
+    "ensemble_raw_accuracy": 0.7101226993865031,
+    "decoded_accuracy": 0.7684049079754601,
+    "decoded_correct": 501
+  }
+}

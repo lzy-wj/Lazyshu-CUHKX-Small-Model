@@ -1,0 +1,7 @@
+{
+  "input": "outputs/checkpoints/v129_mvit_full_domainadapt/best.pt",
+  "output": "experiments/v129_full_mvit_refit/deploy/v129_mvit_full_domainadapt_fp16.pt",
+  "input_bytes": 145003696,
+  "output_bytes": 72619125,
+  "sha256": "823ca3beea03ac21223da8e2f61ecf47340d98fd61d65a83b46395ed843677f6"
+}

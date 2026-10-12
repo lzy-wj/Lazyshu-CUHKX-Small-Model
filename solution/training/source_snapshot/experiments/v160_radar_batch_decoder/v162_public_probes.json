@@ -1,0 +1,25 @@
+{
+  "base": "experiments/v160_radar_batch_decoder/candidates/v161_selected.csv",
+  "probes": {
+    "row217_back": {
+      "position": 217,
+      "prediction": 22,
+      "path": "experiments/v160_radar_batch_decoder/candidates/v162_probe_row217_back.csv"
+    },
+    "row335_back": {
+      "position": 335,
+      "prediction": 1,
+      "path": "experiments/v160_radar_batch_decoder/candidates/v162_probe_row335_back.csv"
+    },
+    "row367_back": {
+      "position": 367,
+      "prediction": 22,
+      "path": "experiments/v160_radar_batch_decoder/candidates/v162_probe_row367_back.csv"
+    },
+    "row333_forward": {
+      "position": 333,
+      "prediction": 21,
+      "path": "experiments/v160_radar_batch_decoder/candidates/v162_probe_row333_forward.csv"
+    }
+  }
+}

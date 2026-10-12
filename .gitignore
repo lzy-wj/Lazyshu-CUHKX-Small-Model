@@ -1,0 +1,35 @@
+# Competition data and generated caches
+data/
+outputs/
+**/outputs/
+**/checkpoints/
+**/cache/
+**/caches/
+**/features/
+
+# Experiment tracking and credentials
+**/swanlog/
+.env
+*.pem
+*.key
+kaggle.json
+
+# Model binaries are distributed through Releases
+solution/artifacts/*.pt
+solution/artifacts/*.pth
+*.ckpt
+
+# Personal declarations and signatures
+**/declarations/
+*signature*
+*签名*
+
+# Python/editor artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+

@@ -1,0 +1,11 @@
+{
+  "names": ["v2_person_multi_f0", "v2_person_ir_f0", "v2_statistics_f0"],
+  "final_models": ["v2_final_person_multi", "v2_final_person_ir", "v2_final_statistics"],
+  "weights": [0.5, 0.2, 0.3],
+  "temperatures": [1.156757778331949, 1.2146341263961762, 1.1338148770999141],
+  "selection_fold": 0,
+  "selection_accuracy": 0.6058282208588958,
+  "frozen_at": "2026-09-07T00:06:24+08:00",
+  "protocol": "Architecture, weights and temperatures selected on fold 0; transfer unchanged to fold 1. Checkpoints selected within each fold. No test labels used.",
+  "eligibility": "AI-assisted research; official no-LLM-development rule unresolved. External ImageNet/COCO pretraining requires organizer clarification. Not automatically submitted."
+}

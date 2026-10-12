@@ -1,0 +1,13 @@
+{
+  "baseline": "configs/v3_selected_ensemble.json",
+  "selection_fold": 0,
+  "confirmation_fold": 1,
+  "candidates": ["v4_detail_f0", "v4_attention_f0", "v4_jointstats_f0"],
+  "amendment": "The attention candidate completed at 50.46% on fold 0, below the 53.07% sensor baseline. Add one bounded comparison that jointly trains full-context X3D with the previously effective statistical skeleton/geometry/world-IMU encoders. No fold-1 candidate metrics have been read at this amendment.",
+  "detail": "Same X3D-S recipe as V3, with fixed upper 72% of detected person boxes cropped directly from original IR/Thermal images. Full-frame fallback when person detection fails.",
+  "attention": "Learned joint-position embeddings, per-frame joint attention and temporal convolutions; retain per-joint temporal mean/max instead of discarding joint identity through global pooling. Geometry and world IMU keep statistical encoders.",
+  "fusion_search": "Before either new video experiment finishes, restrict selection to pairs from V3 full-context X3D, V4 detail X3D and V4 joint-statistics X3D. Keep the old statistical expert at a fixed 0.15 weight; search 21 equally spaced pair weights on fold 0 only. Compare against the untouched V3 blend. At most two X3D models fit the float32 100 MB budget including the detector. Reject the inferior attention candidate; do not fit class-specific weights.",
+  "confirmation_policy": "A detail fold-1 run can execute concurrently for throughput, but its metrics will not be inspected until candidate selection and fusion weights are frozen on fold 0. Each fold chooses its checkpoint on that fold's validation set; this is not unbiased test accuracy.",
+  "budget_policy": "All deployed classifiers and the required person detector must total less than 100000000 bytes. Never overwrite V1/V2/V3 artifacts.",
+  "test_policy": "Test labels are unavailable; never infer a test accuracy from training, validation or other teams' leaderboard scores. No automatic Kaggle submission while competition eligibility remains unresolved."
+}

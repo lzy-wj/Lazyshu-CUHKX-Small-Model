@@ -1,0 +1,67 @@
+{
+  "name": "final_legal_multimodal_v9",
+  "base_models": [
+    {
+      "name": "v3_final_x3d_int8_compact",
+      "weight_within_base": 0.83,
+      "temperature": 0.9736012920941253
+    },
+    {
+      "name": "v2_final_statistics_int8_compact",
+      "weight_within_base": 0.17,
+      "temperature": 1.1338148770999141
+    }
+  ],
+  "r2plus1d": {
+    "name": "r2_staged_soup_full_w075_int8_compact",
+    "right_checkpoint_weight": 0.75,
+    "frames": 32,
+    "weight": 0.6,
+    "temperature": 2.0,
+    "tta": "original, horizontal flip, center 75% crop, center 75% crop plus horizontal flip"
+  },
+  "x3d_l_auxiliary": {
+    "name": "v8_x3dl_soup_full_w075_int8_compact",
+    "modalities": [
+      "person_ir",
+      "person_thermal",
+      "skeleton",
+      "imu_world"
+    ],
+    "right_checkpoint_weight": 0.75,
+    "weight": 0.1,
+    "temperature": 1.0,
+    "maximum_base_confidence": 0.15,
+    "tta": "equal probability blend of original and original-plus-center-87.5%-crop logits"
+  },
+  "base_weight": 0.4,
+  "repeat_decoder": {
+    "round_gap_seconds": 30,
+    "maximum_repeat_gap_seconds": 120,
+    "minimum_probability_similarity": 0.7,
+    "repeat_pool_power": 2,
+    "unique_labels_per_round": true,
+    "transition_strength": 0.4,
+    "transition_scope": "official acquisition environment",
+    "beam_width": 100
+  },
+  "validation": {
+    "raw_fold_accuracy": [
+      0.7101226993865031,
+      0.7914893617021277
+    ],
+    "decoded_fold_accuracy": [
+      0.7684049079754601,
+      0.8425531914893617
+    ],
+    "decoded_weighted_accuracy": 0.8069270449521002
+  },
+  "official_public_score": 0.82089,
+  "official_submission_ref": 56084496,
+  "official_scored_submission": "final_legal_multimodal_v8_decoder.csv",
+  "v9_submission_skipped": "V9 CSV is byte-identical to the scored V8 CSV, so the final daily slot was preserved.",
+  "selection_protocol": "All scalar settings selected on fold 0 and applied unchanged to fold 1; the crop ensemble was retained because it preserved fold-0 decoding and improved fold 1.",
+  "test_information_policy": "No test labels, user IDs, trial IDs, leaked metadata, manual labels, or timestamp-to-label mapping. Acquisition intervals only recover repeated unlabeled rounds and identify the two official collection environments by proximity to training collection dates.",
+  "model_asset_bytes": 97320445,
+  "model_asset_limit_bytes": 100000000
+}

@@ -1,0 +1,27 @@
+{
+  "accounting_rule": "Only assets needed to reproduce final test inference are deployment model assets; training checkpoints and the FP32 soup are excluded.",
+  "primary_int8": {
+    "checkpoint_estimate_bytes": 65397018,
+    "yolo_compact_bytes": 5545721,
+    "estimated_total_bytes": 70942739,
+    "target_limit_bytes": 95000000,
+    "estimated_target_slack_bytes": 24057261,
+    "competition_limit_bytes": 100000000,
+    "estimated_competition_slack_bytes": 29057261
+  },
+  "fallback_int4": {
+    "checkpoint_estimate_bytes": 36413345,
+    "yolo_compact_bytes": 5545721,
+    "estimated_total_bytes": 41959066,
+    "target_limit_bytes": 95000000,
+    "estimated_target_slack_bytes": 53040934
+  },
+  "not_packaged": [
+    "five full-data FP16 source checkpoints",
+    "FP32 parameter soup",
+    "Kinetics initialization checkpoint",
+    "SwanLab logs",
+    "training caches"
+  ],
+  "runtime_audit": "outputs/reports/release_audit.json"
+}

@@ -1,0 +1,63 @@
+{
+  "fetched_at": "2026-09-05T09:12:00.614089+00:00",
+  "source": "https://www.kaggle.com/api/i/competitions.CompetitionService/GetCompetition",
+  "data": {
+    "id": 150044,
+    "competitionName": "cuhk-x-competition-small-model-track",
+    "title": "CUHK-X Competition Small Model Track",
+    "briefDescription": "Using the small model to catogory actions",
+    "dateEnabled": "2026-06-20T04:21:14.947Z",
+    "deadline": "2026-09-15T15:55:00Z",
+    "hasLeaderboard": true,
+    "leaderboardPercentage": 50,
+    "maxDailySubmissions": 5,
+    "numScoredSubmissions": 2,
+    "hasSolution": true,
+    "numPrizes": 1,
+    "forumId": 11636116,
+    "dateCreated": "2026-06-17T07:40:28.802774Z",
+    "competitionHostSegmentId": 10,
+    "maxTeamSize": 3,
+    "totalSolutionRows": 405,
+    "hasCoverImageUrl": true,
+    "hasScripts": true,
+    "totalTeams": 288,
+    "totalCompetitors": 329,
+    "totalSubmissions": 3951,
+    "rulesRequired": true,
+    "privateLeaderboardReleaseDate": "2026-09-22T15:55:00Z",
+    "rowIdColumnName": "path",
+    "evaluationAlgorithm": {
+      "id": 7064,
+      "name": "CUHK-X- SM-Metric",
+      "isMax": true,
+      "environmentRenderType": "ENVIRONMENT_RENDER_TYPE_JSON",
+      "kernelId": 123837932,
+      "latestCompetitionMetricVersionId": 69637,
+      "state": "AVAILABLE"
+    },
+    "categories": [
+      {
+        "name": "custom metric",
+        "description": "This competition's metric is defined under the 'Evaluation' tab",
+        "displayName": "Custom Metric"
+      }
+    ],
+    "launched": true,
+    "createdByUserId": 31834774,
+    "license": {
+      "id": 42,
+      "name": "Subject to Competition Rules",
+      "agreementRequired": false
+    },
+    "hostName": "Gvine15",
+    "scoreTruncationNumDecimals": 5,
+    "totalJoinedUsers": 911,
+    "submissionSizeLimitMb": 20480,
+    "reward": {
+      "id": "USD",
+      "quantity": 10000
+    },
+    "fileBasedSubmissions": true
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "imu": {
+    "folds": [
+      {
+        "fold": 0,
+        "users": [
+          3,
+          6,
+          20
+        ],
+        "correct": 180,
+        "rows": 521,
+        "accuracy": 0.345489443378119
+      },
+      {
+        "fold": 1,
+        "users": [
+          2,
+          19,
+          24
+        ],
+        "correct": 228,
+        "rows": 512,
+        "accuracy": 0.4453125
+      },
+      {
+        "fold": 2,
+        "users": [
+          5,
+          8,
+          16,
+          17
+        ],
+        "correct": 247,
+        "rows": 602,
+        "accuracy": 0.41029900332225916
+      },
+      {
+        "fold": 3,
+        "users": [
+          1,
+          18,
+          21,
+          22
+        ],
+        "correct": 231,
+        "rows": 638,
+        "accuracy": 0.3620689655172414
+      },
+      {
+        "fold": 4,
+        "users": [
+          4,
+          7,
+          9,
+          23
+        ],
+        "correct": 207,
+        "rows": 630,
+        "accuracy": 0.32857142857142857
+      }
+    ],
+    "correct": 1093,
+    "rows": 2903,
+    "accuracy": 0.37650706166035136
+  },
+  "imu_world": {
+    "folds": [
+      {
+        "fold": 0,
+        "users": [
+          3,
+          6,
+          20
+        ],
+        "correct": 147,
+        "rows": 521,
+        "accuracy": 0.2821497120921305
+      },
+      {
+        "fold": 1,
+        "users": [
+          2,
+          19,
+          24
+        ],
+        "correct": 185,
+        "rows": 512,
+        "accuracy": 0.361328125
+      },
+      {
+        "fold": 2,
+        "users": [
+          5,
+          8,
+          16,
+          17
+        ],
+        "correct": 193,
+        "rows": 602,
+        "accuracy": 0.32059800664451826
+      },
+      {
+        "fold": 3,
+        "users": [
+          1,
+          18,
+          21,
+          22
+        ],
+        "correct": 211,
+        "rows": 638,
+        "accuracy": 0.33072100313479624
+      },
+      {
+        "fold": 4,
+        "users": [
+          4,
+          7,
+          9,
+          23
+        ],
+        "correct": 209,
+        "rows": 630,
+        "accuracy": 0.33174603174603173
+      }
+    ],
+    "correct": 945,
+    "rows": 2903,
+    "accuracy": 0.3255253186358939
+  },
+  "imu_official": {
+    "folds": [
+      {
+        "fold": 0,
+        "users": [
+          3,
+          6,
+          20
+        ],
+        "correct": 186,
+        "rows": 521,
+        "accuracy": 0.3570057581573896
+      },
+      {
+        "fold": 1,
+        "users": [
+          2,
+          19,
+          24
+        ],
+        "correct": 236,
+        "rows": 512,
+        "accuracy": 0.4609375
+      },
+      {
+        "fold": 2,
+        "users": [
+          5,
+          8,
+          16,
+          17
+        ],
+        "correct": 247,
+        "rows": 602,
+        "accuracy": 0.41029900332225916
+      },
+      {
+        "fold": 3,
+        "users": [
+          1,
+          18,
+          21,
+          22
+        ],
+        "correct": 245,
+        "rows": 638,
+        "accuracy": 0.384012539184953
+      },
+      {
+        "fold": 4,
+        "users": [
+          4,
+          7,
+          9,
+          23
+        ],
+        "correct": 229,
+        "rows": 630,
+        "accuracy": 0.3634920634920635
+      }
+    ],
+    "correct": 1143,
+    "rows": 2903,
+    "accuracy": 0.39373062349293836
+  },
+  "imu_world_magnetic": {
+    "folds": [
+      {
+        "fold": 0,
+        "users": [
+          3,
+          6,
+          20
+        ],
+        "correct": 164,
+        "rows": 521,
+        "accuracy": 0.31477927063339733
+      },
+      {
+        "fold": 1,
+        "users": [
+          2,
+          19,
+          24
+        ],
+        "correct": 183,
+        "rows": 512,
+        "accuracy": 0.357421875
+      },
+      {
+        "fold": 2,
+        "users": [
+          5,
+          8,
+          16,
+          17
+        ],
+        "correct": 203,
+        "rows": 602,
+        "accuracy": 0.3372093023255814
+      },
+      {
+        "fold": 3,
+        "users": [
+          1,
+          18,
+          21,
+          22
+        ],
+        "correct": 218,
+        "rows": 638,
+        "accuracy": 0.34169278996865204
+      },
+      {
+        "fold": 4,
+        "users": [
+          4,
+          7,
+          9,
+          23
+        ],
+        "correct": 208,
+        "rows": 630,
+        "accuracy": 0.33015873015873015
+      }
+    ],
+    "correct": 976,
+    "rows": 2903,
+    "accuracy": 0.33620392697209783
+  }
+}
