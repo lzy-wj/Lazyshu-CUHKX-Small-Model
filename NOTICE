@@ -6,6 +6,7 @@ attributions are documented in THIRD_PARTY_NOTICES.md and solution/licenses/.
 The CUHK-X dataset is not distributed with this work and is governed by its
 own terms.
 
-The project used OpenAI Codex/ChatGPT for AI-assisted implementation,
-debugging, experiment orchestration, documentation, and review. AI tooling is
-acknowledged as assistance and is not listed as a project author.
+The project was developed collaboratively by Liu Zhaoyang and GPT-5.6-sol.
+GPT-5.6-sol contributed to implementation, debugging, experiment orchestration,
+analysis, documentation, and review. Liu Zhaoyang is the project author and
+maintainer.

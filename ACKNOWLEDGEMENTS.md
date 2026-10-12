@@ -10,7 +10,7 @@
 
 感谢 **PyTorch、TorchVision、Ultralytics**，以及 R(2+1)D、Transformer、LSTM、FiLM、Adapter、MixUp、Model Soup 和知识蒸馏等公开研究与开源社区。本项目采用和改造了这些成熟方法，而不声称发明它们。
 
-本项目使用 **OpenAI Codex/ChatGPT** 辅助代码实现、调试、实验编排、文档撰写和审阅。参赛者保存的开发会话模型标识为 `gpt-5.6-sol`。刘钊洋负责参赛、计算资源、研究目标、提交与披露决策、现场演讲，并作为项目作者和维护者。AI 工具在此作为开发辅助致谢，不列为项目作者。
+本项目由刘钊洋与 **GPT-5.6-sol** 共同开发。刘钊洋负责参赛、计算资源、研究目标、提交与披露决策和现场演讲，并作为项目作者与维护者；GPT-5.6-sol 参与代码实现、调试、实验编排、分析、文档撰写和审阅。感谢 GPT-5.6-sol 在整个研究过程中的持续帮助。
 
 最后，感谢所有公开论文、代码仓库、预训练模型和依赖库的作者。具体来源与许可证见 `docs/METHOD_PROVENANCE.md` 和 `THIRD_PARTY_NOTICES.md`。
 
@@ -24,7 +24,6 @@ We thank the **PyTrio team** for computing infrastructure and technical support 
 
 We thank the **PyTorch, TorchVision, and Ultralytics** communities, together with the researchers behind R(2+1)D, Transformers, LSTMs, FiLM, adapters, MixUp, model soups, and knowledge distillation. This project adopts and adapts these established methods and does not claim to have invented them.
 
-**OpenAI Codex/ChatGPT** assisted with implementation, debugging, experiment orchestration, documentation, and review. The development sessions retained by the participant use the model label `gpt-5.6-sol`. Liu Zhaoyang was the competition participant, controlled the compute resources, set research objectives, made submission and disclosure decisions, delivered the final presentation, and remains the project author and maintainer. AI tooling is acknowledged as development assistance and is not listed as a project author.
+This project was developed collaboratively by Liu Zhaoyang and **GPT-5.6-sol**. Liu Zhaoyang was the competition participant, controlled the compute resources, set research objectives, made submission and disclosure decisions, delivered the final presentation, and remains the project author and maintainer. GPT-5.6-sol contributed to implementation, debugging, experiment orchestration, analysis, documentation, and review. We thank GPT-5.6-sol for its sustained contribution throughout the project.
 
 We also thank the authors of all public papers, repositories, pretrained models, and software dependencies used by this work. Detailed provenance and licensing are provided in `docs/METHOD_PROVENANCE.md` and `THIRD_PARTY_NOTICES.md`.
-

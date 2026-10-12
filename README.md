@@ -1,8 +1,6 @@
 # Lazyshu：从 53.94% 到 CUHK-X 决赛第四名
 
-> 当前仓库为私有预览版；确认内容与许可边界后再决定是否公开。
-
-[English](README_en.md) · [技术报告](docs/technical_report.pdf) · [完整版本史](docs/RESEARCH_LINEAGE_zh-CN.md) · [模型卡](docs/MODEL_CARD.md)
+[English](README_en.md) · [Kaggle 最终榜单](https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track/leaderboard) · [技术报告](docs/technical_report.pdf) · [完整版本史](docs/RESEARCH_LINEAGE_zh-CN.md)
 
 这是我们参加 **CUHK-X Small Model Track** 的完整方案。主要研发从 9 月 6 日持续到 9 月 15 日，决定最终方案的核心迭代集中在最后一周。
 
@@ -27,6 +25,13 @@
 
 我们也走过不少弯路：扩大模型、增加多次前向、直接使用 Radar 分组，都能让本地分数变高，却没有带来更好的线上泛化。最终方案并不是本地最高分，而是我们认为更稳的一版。
 
+## 两种阅读方式
+
+- **只想了解最终方案：** 继续阅读本 README，再看 [`solution/`](solution/) 和 [关键代数记忆卡](docs/VERSION_CARDS_zh-CN.md)。
+- **想了解完整研究过程：** 从 [研究档案导航](research_archive/INDEX_zh-CN.md) 进入，查看 V1–V197 谱系、全部现存实验分支和失败记录。
+
+版本号表示研究批次，不是 197 次单调升级。开源树保留了 `1,196` 个历史文件和 `178` 个实验目录，但默认可运行入口始终是 `solution/`。
+
 ## 最终方案
 
 - Depth、Thermal、IR 共享一个 R(2+1)D-34 视频编码器。
@@ -37,6 +42,8 @@
 - 所有权重、Adapter、检测器和状态文件合计 `84,094,248 bytes`。
 
 ## 成绩
+
+Public 与 Private 成绩可在 [Kaggle 最终榜单](https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track/leaderboard) 查询。
 
 | 提交 | Public | Private | 说明 |
 |---|---:|---:|---|
@@ -65,11 +72,12 @@ bash inference.sh /path/to/testing/data /path/to/output
 
 ```text
 solution/            最终推理、训练快照和验证代码
-research_archive/    各代实验源码与结果记录
+research_archive/    V1–V197 研究谱系与全部现存实验档案
 docs/                技术报告、版本史、负结果和模型说明
 ```
 
 - [项目教程](docs/TUTORIAL_zh-CN.md)
+- [完整研究档案导航](research_archive/INDEX_zh-CN.md)
 - [V1–V197 完整版本谱系](docs/RESEARCH_LINEAGE_zh-CN.md)
 - [负结果与研究教训](docs/NEGATIVE_RESULTS.md)
 - [方法来源与原创边界](docs/METHOD_PROVENANCE.md)
@@ -81,7 +89,7 @@ docs/                技术报告、版本史、负结果和模型说明
 
 感谢 CUHK-X Challenge 主办方与 CUHK AIoT Lab，感谢 SwanLab 的实验追踪支持，感谢 PyTrio 团队提供计算资源与技术支持，也感谢 PyTorch、TorchVision、Ultralytics 和相关开源社区。
 
-项目使用 OpenAI Codex/ChatGPT 辅助实现、调试、实验编排、文档和审阅；保存的开发会话模型标识为 `gpt-5.6-sol`。AI 工具作为开发辅助致谢，不列为作者。完整说明见 [致谢](ACKNOWLEDGEMENTS.md) 和 [AI 辅助开发披露](docs/AI_ASSISTED_DEVELOPMENT.md)。
+本项目由刘钊洋与 **GPT-5.6-sol** 共同开发。刘钊洋负责参赛、研究目标、计算资源、提交决策和现场演讲；GPT-5.6-sol 参与代码实现、调试、实验编排、分析、文档和审阅。完整说明见 [致谢](ACKNOWLEDGEMENTS.md) 和 [共同开发说明](docs/AI_ASSISTED_DEVELOPMENT.md)。
 
 ## License
 

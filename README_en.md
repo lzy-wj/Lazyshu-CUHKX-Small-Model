@@ -1,8 +1,6 @@
 # Lazyshu: From 53.94% to Fourth Place at the CUHK-X Finals
 
-> This repository is currently a private preview. Public release will follow only after content and licensing review.
-
-[中文](README.md) · [Technical report](docs/technical_report.pdf) · [Full version history](docs/RESEARCH_LINEAGE_zh-CN.md) · [Model card](docs/MODEL_CARD.md)
+[中文](README.md) · [Kaggle final leaderboard](https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track/leaderboard) · [Technical report](docs/technical_report.pdf) · [Full version history](docs/RESEARCH_LINEAGE_zh-CN.md)
 
 Lazyshu is our solution to the **CUHK-X Small Model Track**. The main development period ran from September 6 to September 15, with the decisive iterations concentrated in the final week.
 
@@ -27,6 +25,13 @@ Early progress came from fixing the input representation and temporal visual mod
 
 Several larger or more complicated ideas improved local validation but failed online. The final submission was therefore not the locally highest-scoring system; it was the system we considered more reliable under distribution shift.
 
+## Two Ways to Read This Repository
+
+- **Final system only:** continue with this README, [`solution/`](solution/), and the [version cards](docs/VERSION_CARDS_zh-CN.md).
+- **Full research process:** start from the [research archive guide](research_archive/INDEX_en.md), then explore the V1–V197 lineage, all retained experiment branches, and negative results.
+
+Version numbers identify research batches, not 197 monotonic upgrades. The public tree retains `1,196` historical files and `178` experiment directories, while `solution/` remains the authoritative runnable entry point.
+
 ## Final System
 
 - Shared R(2+1)D-34 for depth, thermal, and infrared video.
@@ -37,6 +42,8 @@ Several larger or more complicated ideas improved local validation but failed on
 - All runtime weights and states total `84,094,248 bytes`.
 
 ## Results
+
+The public and private results can be checked on the [Kaggle final leaderboard](https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track/leaderboard).
 
 | Submission | Public | Private | Note |
 |---|---:|---:|---|
@@ -65,9 +72,13 @@ Competition data are not redistributed here.
 
 ```text
 solution/            Final inference, training snapshot, and verification code
-research_archive/    Experiment source and lightweight result records
+research_archive/    V1–V197 lineage and all retained experiment records
 docs/                Report, version history, negative results, and model notes
 ```
+
+- [Complete research archive guide](research_archive/INDEX_en.md)
+- [Full V1–V197 lineage](docs/RESEARCH_LINEAGE_zh-CN.md)
+- [Negative results](docs/NEGATIVE_RESULTS.md)
 
 ## Attribution and Thanks
 
@@ -75,7 +86,7 @@ The project adopts established methods including R(2+1)D, Transformers, BiLSTMs,
 
 We thank the CUHK-X organizers and CUHK AIoT Lab, SwanLab, the PyTrio team, and the PyTorch, TorchVision, Ultralytics, and research communities.
 
-OpenAI Codex/ChatGPT assisted with implementation, debugging, experiment orchestration, documentation, and review. The retained development sessions use the model label `gpt-5.6-sol`. AI tooling is acknowledged as assistance and is not listed as an author. See [Acknowledgements](ACKNOWLEDGEMENTS.md) and [Method Provenance](docs/METHOD_PROVENANCE.md).
+This project was developed collaboratively by Liu Zhaoyang and **GPT-5.6-sol**. Liu Zhaoyang led the competition entry, research objectives, compute resources, submission decisions, and final presentation; GPT-5.6-sol contributed to implementation, debugging, experiment orchestration, analysis, documentation, and review. See [Acknowledgements](ACKNOWLEDGEMENTS.md) and [Method Provenance](docs/METHOD_PROVENANCE.md).
 
 ## License
 

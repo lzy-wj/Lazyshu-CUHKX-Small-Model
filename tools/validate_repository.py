@@ -48,7 +48,11 @@ def fail(messages):
 
 def main():
     errors = []
-    files = [path for path in ROOT.rglob("*") if path.is_file()]
+    files = [
+        path
+        for path in ROOT.rglob("*")
+        if path.is_file() and ".git" not in path.relative_to(ROOT).parts
+    ]
     relative_files = {path.relative_to(ROOT).as_posix() for path in files}
 
     for required in sorted(REQUIRED_FILES - relative_files):

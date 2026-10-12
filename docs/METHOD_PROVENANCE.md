@@ -50,6 +50,4 @@ R(2+1)D 的主体实现调用 TorchVision `VideoResNet`、`BasicBlock`、`Conv2P
 
 ## 5. AI 辅助开发
 
-OpenAI Codex/ChatGPT 参与了实现、调试、实验编排、文档和审阅。参赛者保存的开发会话模型标识为 `gpt-5.6-sol`。具体披露和主办方澄清依据见 `docs/AI_ASSISTED_DEVELOPMENT.md`。
-
-AI 工具作为开发辅助致谢，不列为作者。项目作者、参赛者和维护者为刘钊洋。
+本项目由刘钊洋与 GPT-5.6-sol 共同开发。GPT-5.6-sol 参与实现、调试、实验编排、分析、文档和审阅；刘钊洋负责参赛、研究目标、计算资源、提交与披露决策和现场演讲，并作为项目作者与维护者。具体说明和主办方澄清依据见 `docs/AI_ASSISTED_DEVELOPMENT.md`。
