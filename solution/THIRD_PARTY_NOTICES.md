@@ -1,8 +1,10 @@
 # Third-party models and software
 
+The model assets described below were used in the private frozen competition package. This public release contains source, configurations, and documentation only; it does not distribute the final checkpoints, YOLO11n weights, or decoder state.
+
 ## R(2+1)D-34 initialization
 
-- Purpose: initialization of the visual CNN before full CUHK-X supervised training; not downloaded or separately loaded during inference because it is incorporated into the bundled final checkpoint.
+- Purpose: initialization of the visual CNN before full CUHK-X supervised training; not downloaded or separately loaded during inference because it is incorporated into the privately retained final checkpoint.
 - Model: `r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth`, IG-65M pretraining followed by Kinetics-400 fine-tuning.
 - Source: `https://github.com/moabitcoin/ig65m-pytorch/releases/tag/v1.0.0`
 - Exact weight URL: `https://github.com/moabitcoin/ig65m-pytorch/releases/download/v1.0.0/r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth`
@@ -15,8 +17,9 @@
 - Source: `https://github.com/ultralytics/ultralytics`, YOLO11 documentation `https://docs.ultralytics.com/models/yolo11/`
 - Runtime software version: `ultralytics==8.4.142`
 - Training data: COCO object detection dataset through the public pretrained checkpoint.
-- Bundled checkpoint: `artifacts/yolo11n_compact.pt`, SHA-256 `11120a721121fb9d178b87cb769027f848b3dfae138db8ff08db3b6920389999`
-- Licence: GNU Affero General Public License v3.0; text included as `licenses/ULTRALYTICS_AGPL-3.0.txt`.
+- Private checkpoint: `artifacts/yolo11n_compact.pt`, SHA-256 `11120a721121fb9d178b87cb769027f848b3dfae138db8ff08db3b6920389999`. This file is not in the public release.
+- Licence: GNU Affero General Public License v3.0; text included as `licenses/ULTRALYTICS_AGPL-3.0.txt`. Ultralytics identifies YOLO11 software and pretrained weights as AGPL-3.0 by default; the project Apache-2.0 licence does not relicense those components.
+- Official licensing information: `https://www.ultralytics.com/license` and `https://docs.ultralytics.com/models/yolo11/`.
 
 ## Runtime libraries
 

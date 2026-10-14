@@ -12,6 +12,20 @@ It contains the final runtime weights, inference source, environment pins, train
 
 The public code supports method inspection and independent retraining, but does not promise byte-exact regeneration of the original competition CSV without the private frozen artifacts.
 
+## Running the preserved entry point
+
+The public checkout contains none of the 14 runtime artifacts listed in `solution/configs/artifact_hashes.json`. This includes the model checkpoints, YOLO11n cropper, and decoder state. Dependencies alone are insufficient, and the entry point does not download the missing artifacts.
+
+After restoring all exact frozen artifacts under `solution/artifacts/` and obtaining authorized data, run from the repository root:
+
+```bash
+bash solution/inference.sh <data_dir> <output_csv>
+```
+
+Artifact sizes and hashes are verified before preprocessing. Independently retrained weights will not pass those frozen checks as-is; a new model requires its own exported decoder state and inventory. See `solution/training/README.md` for the preserved training source and lineage.
+
+`solution/manifest.yaml` is historical metadata for the private competition package. Its references to runtime artifacts, submission records, and signed declarations do not mean those files are in the public checkout. Repository-content validation and the private reproduction audit are separate checks.
+
 ## Runtime behavior
 
 - Discovers the Testing root and sample count dynamically.

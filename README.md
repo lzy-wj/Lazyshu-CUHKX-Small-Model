@@ -1,10 +1,10 @@
-# Lazyshu：从 53.94% 到 CUHK-X 决赛第四名
+# Lazyshu：从 53.94% 到 CUHK-X 私榜第 4
 
 [English](README_en.md) · [Kaggle 最终榜单](https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track/leaderboard) · [技术报告](docs/technical_report.pdf) · [完整版本史](docs/RESEARCH_LINEAGE_zh-CN.md)
 
-这是我们参加 **CUHK-X Small Model Track** 的完整方案。主要研发从 9 月 6 日持续到 9 月 15 日，决定最终方案的核心迭代集中在最后一周。
+这是我们参加 **CUHK-X Small Model Track** 的代码与研究记录。主要研发从 9 月 6 日持续到 9 月 15 日，决定最终方案的核心迭代集中在最后一周。
 
-我们从一个 `53.94%` 的六模态 baseline 起步，最终主提交取得 **Private 91.176%**，获得决赛 **第四名**。全部推理资产为 **84.09 MB**。
+我们从一个 `53.94%` 的六模态 baseline 起步，最终主提交取得 **Private 91.176%**，位列 **Kaggle 私榜第 4**，入围 UbiComp 2026 决赛并获 **Outstanding Award**。全部推理资产为 **84.09 MB**。
 
 ![Lazyshu 架构](docs/figures/figure_3_architecture.png)
 
@@ -30,7 +30,7 @@
 - **只想了解最终方案：** 继续阅读本 README，再看 [`solution/`](solution/) 和 [关键代数记忆卡](docs/VERSION_CARDS_zh-CN.md)。
 - **想了解完整研究过程：** 从 [研究档案导航](research_archive/INDEX_zh-CN.md) 进入，查看 V1–V197 谱系、全部现存实验分支和失败记录。
 
-版本号表示研究批次，不是 197 次单调升级。开源树保留了 `1,196` 个历史文件和 `178` 个实验目录，但默认可运行入口始终是 `solution/`。
+版本号表示研究批次，不是 197 次单调升级。开源树保留了 `1,196` 个历史文件和 `178` 个实验目录，最终推理入口保留在 `solution/`；运行需要另行恢复未公开的冻结资产。
 
 ## 最终方案
 
@@ -47,10 +47,10 @@ Public 与 Private 成绩可在 [Kaggle 最终榜单](https://www.kaggle.com/com
 
 | 提交 | Public | Private | 说明 |
 |---|---:|---:|---|
-| V127 | **0.92039** | **0.91176** | 主提交，最终第四名 |
+| V127 | **0.92039** | **0.91176** | 主提交，Kaggle 私榜第 4 |
 | V164 | 0.91044 | 0.90686 | 结构差异备选 |
 
-两份 CSV 都已经从原始无标签测试数据重新推理，并做到逐字节一致。
+两份 CSV 都已经在私有冻结包的内部审查中，从原始无标签测试数据重新推理，并做到逐字节一致。
 
 ## 复现
 
@@ -60,13 +60,15 @@ Public 与 Private 成绩可在 [Kaggle 最终榜单](https://www.kaggle.com/com
 SHA-256 060c126ac015135f5265d510ed6db6eaa799d515f22178fb6b12c2cbf28cc55a
 ```
 
-公开仓库可以复现数据处理、训练方法、模型结构、路由与解码实现，但由于不发布冻结权重，不能仅靠公开仓库逐字节重建比赛提交。拥有合法数据和自行训练的权重后，可以使用同一入口：
+公开仓库保留了数据处理、训练方法、模型结构、路由与解码实现，但运行最终推理需要全部 14 个冻结资产，包括权重、YOLO11n 检测器和 decoder state。仓库不会自动下载这些文件；缺失文件或哈希不匹配时，推理会终止。
+
+恢复匹配 `solution/configs/artifact_hashes.json` 的完整冻结资产并取得合法数据后，从仓库根目录运行：
 
 ```bash
-bash inference.sh /path/to/testing/data /path/to/output
+bash solution/inference.sh /path/to/testing/data /path/to/output.csv
 ```
 
-仓库不重新分发比赛数据。详细边界见 [复现说明](docs/REPRODUCIBILITY.md)。
+独立重训可参考 [训练说明](solution/training/README.md)，但新权重不能直接通过冻结资产的哈希检查，需要为自己的模型生成相应状态与资产清单。仓库不重新分发比赛数据。详细边界见 [复现说明](docs/REPRODUCIBILITY.md)。
 
 ## 项目内容
 
