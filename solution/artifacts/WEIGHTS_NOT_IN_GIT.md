@@ -8,4 +8,4 @@ The full bundle SHA-256 is:
 060c126ac015135f5265d510ed6db6eaa799d515f22178fb6b12c2cbf28cc55a
 ```
 
-`configs/artifact_hashes.json` remains a historical inventory of the privately retained competition artifacts.
+[`../configs/artifact_hashes.json`](../configs/artifact_hashes.json) remains a historical inventory of the privately retained competition artifacts.

@@ -6,6 +6,9 @@ authors:
   - family-names: Liu
     given-names: Zhaoyang
     email: lazy@bupt.edu.cn
+    affiliation: Beijing University of Posts and Telecommunications
+url: https://github.com/lzy-wj/Lazyshu-CUHKX-Small-Model
+repository-code: https://github.com/lzy-wj/Lazyshu-CUHKX-Small-Model
 year: 2026
 license: Apache-2.0
 version: 1.0.0

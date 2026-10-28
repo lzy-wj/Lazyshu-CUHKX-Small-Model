@@ -23,4 +23,4 @@ assert torch.cuda.is_available()
 PY
 ```
 
-Package installation needs network access to PyPI and the PyTorch wheel index. Runtime inference is offline and all weights are included. Third-party licences are summarized in `../THIRD_PARTY_NOTICES.md`; the bundled Ultralytics AGPL-3.0 text is in `../licenses/`.
+Package installation needs network access to PyPI and the PyTorch wheel index. Runtime inference is offline after restoring all 14 exact runtime artifacts listed in `../configs/artifact_hashes.json`. This public checkout does not include those artifacts and does not download them. Third-party licences are summarized in `../THIRD_PARTY_NOTICES.md`; the bundled Ultralytics AGPL-3.0 text is in `../licenses/`.

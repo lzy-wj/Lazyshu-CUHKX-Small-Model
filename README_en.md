@@ -93,3 +93,5 @@ This project was developed collaboratively by Liu Zhaoyang and **GPT-5.6-sol**. 
 ## License
 
 Original project code is Apache-2.0. Third-party software, models, and data retain their respective licenses; see `THIRD_PARTY_NOTICES.md`.
+
+The [technical report](docs/technical_report.pdf) is licensed under CC BY 4.0, copyright © 2026 Liu Zhaoyang. See the [report license](docs/REPORT_LICENSE.md).

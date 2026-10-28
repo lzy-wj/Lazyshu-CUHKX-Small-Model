@@ -1,5 +1,11 @@
 # Lazyshu Small-Track Verification Package
 
+This tree documents the original private verification package. The public
+checkout preserves the source, configurations, environment pins, and verification
+records. Runtime assets, final submission CSVs, submission metadata, and signed
+declarations shown below are retained privately and are not included here. See
+[the public source guide](README.md) and [reproduction notes](../docs/REPRODUCIBILITY.md).
+
 ```text
 small_Lazyshu_verification_v1/
 ├── README.md                       # organizer start point and exact commands

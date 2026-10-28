@@ -14,9 +14,10 @@ outputs/
 *.key
 kaggle.json
 
-# Model binaries are distributed through Releases
+# Runtime model artifacts remain private
 solution/artifacts/*.pt
 solution/artifacts/*.pth
+solution/artifacts/decoder_state.json
 *.ckpt
 
 # Personal declarations and signatures

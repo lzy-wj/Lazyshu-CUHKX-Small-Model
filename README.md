@@ -96,3 +96,5 @@ docs/                技术报告、版本史、负结果和模型说明
 ## License
 
 项目自有代码采用 Apache-2.0。第三方软件、模型和数据仍遵循各自许可证，详见 `THIRD_PARTY_NOTICES.md`。
+
+[技术报告](docs/technical_report.pdf)采用 CC BY 4.0，版权归 Liu Zhaoyang 所有；详见[报告许可](docs/REPORT_LICENSE.md)。

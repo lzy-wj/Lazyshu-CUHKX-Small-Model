@@ -21,7 +21,7 @@ mkdir -p .tools/checkpoints
 curl -L -o .tools/checkpoints/r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth \
   https://github.com/moabitcoin/ig65m-pytorch/releases/download/v1.0.0/r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth
 echo 'ade133f18548b59da3a36d6a70d44a4a7cc4b90460654c338cb8a023e9a3e0e1  .tools/checkpoints/r2plus1d_34_clip32_ft_kinetics_from_ig65m-ade133f1.pth' | sha256sum -c -
-cp ../../../artifacts/yolo11n_compact.pt .tools/checkpoints/yolo11n.pt
+cp ../../artifacts/yolo11n_compact.pt .tools/checkpoints/yolo11n.pt
 ```
 
 ## Base preprocessing and five-source full fit
@@ -53,6 +53,8 @@ The fixed epochs, learning rates, augmentations, source hashes, and soup weights
 
 ## Post-base stages
 
+The historical V24 launchers retain the original shared-server scheduling guard: between 08:00 and 18:00 Asia/Shanghai, they leave four GPUs idle. The examples above use GPU IDs 0--4. On another machine, review the guard in `v24_full_refit/common.sh` and select available GPU IDs before launching. These scheduling settings do not change the preserved training recipe.
+
 The exact post-base source lineage is retained in these directories:
 
 - `scene_context_v13`: test-pseudo head adaptation and pair-aware decoders;
@@ -64,6 +66,8 @@ The exact post-base source lineage is retained in these directories:
 - `v160_radar_batch_decoder`, `v164_evidence_gated_radar`: Radar batch grouping and evidence gate.
 
 These stages require the generated outputs of their predecessors. Their run scripts and checkpoint-embedded configs record every training hyperparameter. `artifacts/decoder_state.json` is the frozen export of label-derived training transitions/templates plus routing constants; it is loaded directly at inference so Training labels are never required by `inference.sh`.
+
+The public release preserves these training stages and their configurations; checkpoints and frozen decoder state remain private. Independently retrained models need the outputs of preceding stages, a matching decoder-state export, and their own asset inventory rather than the original frozen hashes. Exact competition-output matching refers to the internal verification of the private package.
 
 ## Experiment tracking
 
